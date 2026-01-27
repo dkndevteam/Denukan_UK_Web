@@ -5,46 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Denukan UK</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Custom Styles -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-
-<body>
+<body class="bg-gray-50 text-gray-800 font-inter overflow-x-hidden">
 
   <!-- Navigation -->
-  <nav class="shadow-sm">
+  <nav class="fixed top-0 left-0 w-full z-50 shadow-md backdrop-blur-md bg-white/30 animate-drop-down">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold">Denukan UK</h1>
-      <div class="space-x-6">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+      <h1 class="text-xl md:text-2xl font-bold text-gray-900 font-playfair">
+        Denukan Network Limited, United Kingdom
+      </h1>
+      <div class="space-x-6 text-gray-800 font-medium">
+        <a href="#hero" class="hover:text-blue-600 transition">Home</a>
+        <a href="#services" class="hover:text-blue-600 transition">Services</a>
+        <a href="#visuals" class="hover:text-blue-600 transition">Gallery</a>
+        <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="text-center py-24 px-6">
-    <h2 class="text-4xl md:text-5xl font-bold mb-6">
-      Workforce & Technical Deployment Solutions
-    </h2>
-    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-      Denukan UK delivers reliable workforce management, provisioning support, and technical field services for modern enterprises.
-    </p>
-    <a href="contact.html" class="btn-primary">Contact Us</a>
+  <section id="hero" class="relative h-screen flex items-center justify-center text-center hero-bg parallax-bg">
+    <div class="absolute inset-0 bg-black bg-opacity-25"></div>
+    <div class="relative z-10 px-6 max-w-3xl">
+      <h2 class="text-5xl md:text-6xl font-playfair font-bold text-white mb-6 animate-fade-up">
+        Empowering Businesses with Cutting-Edge Technical & Workforce Solutions
+      </h2>
+      <p class="text-lg md:text-xl text-gray-100 mb-8 font-poppins animate-fade-up animate-delay-200">
+        From field engineering to enterprise support, we bring expertise, precision, and innovation to every project.
+      </p>
+      <a href="#contact" class="btn-primary animate-fade-up animate-delay-400">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="max-w-6xl mx-auto py-20 px-6">
+    <h2 class="text-4xl font-playfair font-bold text-center mb-12 animate-fade-up">Our Expertise</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="service-card animate-float">
+        <img src="https://www.denukan.com/static/media/black-people.00443de929584c6079bb.webp" alt="Teamwork & Collaboration" class="rounded-t-lg object-cover h-52 w-full shadow-lg">
+        <div class="p-5 bg-white/90 backdrop-blur-sm rounded-b-lg">
+          <h3 class="text-xl font-semibold mb-2 font-playfair">Team Deployment</h3>
+          <p class="text-gray-700 font-poppins">Professional teams delivering on-site and remote technical services.</p>
+        </div>
+      </div>
+      <div class="service-card animate-float" style="animation-delay:0.2s;">
+        <img src="https://res.cloudinary.com/dayonuel/image/upload/v1672427196/1672427182029_immhzx.jpg" alt="Technology Infrastructure" class="rounded-t-lg object-cover h-52 w-full shadow-lg">
+        <div class="p-5 bg-white/90 backdrop-blur-sm rounded-b-lg">
+          <h3 class="text-xl font-semibold mb-2 font-playfair">Tech & Infrastructure</h3>
+          <p class="text-gray-700 font-poppins">Advanced technical solutions from provisioning to deployment engineering.</p>
+        </div>
+      </div>
+      <div class="service-card animate-float" style="animation-delay:0.4s;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxKUxkDUydF0Ncef5X5X-JKB5xfqaNnXEwg&s" alt="Corporate Network" class="rounded-t-lg object-cover h-52 w-full shadow-lg">
+        <div class="p-5 bg-white/90 backdrop-blur-sm rounded-b-lg">
+          <h3 class="text-xl font-semibold mb-2 font-playfair">Corporate Solutions</h3>
+          <p class="text-gray-700 font-poppins">Tailored enterprise solutions and workforce management services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Grid Section -->
+  <section id="visuals" class="max-w-6xl mx-auto py-20 px-6">
+    <h2 class="text-4xl font-playfair font-bold text-center mb-12 animate-fade-up">Our Visual Impact</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="relative overflow-hidden rounded-lg animate-float">
+        <img src="https://cdn.sanity.io/images/uqxwe2qj/production/62db3c671745e98cb27690dff96f8033d2bb7f35-2048x1010.jpg?q=80&auto=format&fit=clip&w=1440" alt="Technology Work" class="w-full h-72 md:h-96 object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-25 flex items-end p-6">
+          <p class="text-white text-xl font-semibold font-poppins">Innovative Solutions in Technology</p>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-lg animate-float" style="animation-delay:0.3s;">
+        <img src="https://www.ziprecruiter.com/svc/fotomat/public-ziprecruiter/cms/950986640CommunicationsConsultant.jpg=ws1280x960" alt="Consulting Services" class="w-full h-72 md:h-96 object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-25 flex items-end p-6">
+          <p class="text-white text-xl font-semibold font-poppins">Expert Communications & Consultancy</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center py-8 border-t mt-16">
-    © 2026 Denukan UK. All rights reserved.
+  <footer id="contact" class="text-center py-8 border-t mt-16 bg-gray-900 text-gray-200 font-poppins">
+    © 2026 Denukan Network Limited, United Kingdom
   </footer>
 
+  <!-- ScrollReveal JS -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    // Scroll reveal for sections
+    ScrollReveal().reveal('.animate-fade-up', {
+      distance: '50px',
+      origin: 'bottom',
+      opacity: 0,
+      duration: 1000,
+      easing: 'ease-out',
+      interval: 200,
+    });
+
+    // Floating cards
+    const floatCards = document.querySelectorAll('.animate-float');
+    floatCards.forEach(card => {
+      card.animate([
+        { transform: 'translateY(0px)' },
+        { transform: 'translateY(-10px)' },
+        { transform: 'translateY(0px)' }
+      ], {
+        duration: 4000,
+        iterations: Infinity,
+        direction: 'alternate',
+        easing: 'ease-in-out'
+      });
+    });
+
+    // Parallax background effect
+    const heroBg = document.querySelector('.parallax-bg');
+    window.addEventListener('scroll', () => {
+      const offset = window.scrollY;
+      heroBg.style.backgroundPositionY = offset * 0.5 + 'px';
+    });
+  </script>
 </body>
 </html>
