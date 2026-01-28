@@ -3,13 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Denukan UK</title>
+  <title>Contact Us - DENUKAN network uk br.ltd UK | Get in Touch</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@400;600&family=Montserrat:wght@500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'denukan-green': '#10b981',
+            'denukan-light-green': '#6ee7b7',
+            'denukan-dark-blue': '#0f172a',
+            'denukan-blue': '#1e40af',
+            'denukan-dark-green': '#065f46',
+          }
+        }
+      }
+    }
+  </script>
   
   <style>
-    /* Hero background */
     .hero-bg {
       background-image: url('https://cdn.sanity.io/images/uqxwe2qj/production/62db3c671745e98cb27690dff96f8033d2bb7f35-2048x1010.jpg?q=80&auto=format&fit=clip&w=1440');
       background-size: cover;
@@ -17,45 +31,41 @@
       background-attachment: fixed;
     }
 
-    /* Buttons */
     .btn-primary {
       display: inline-block;
-      background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+      background: linear-gradient(135deg, #10b981, #065f46);
       color: white;
       font-weight: 600;
-      padding: 0.75rem 1.5rem;
+      padding: 0.875rem 2rem;
       border-radius: 0.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
       cursor: pointer;
     }
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
     }
 
-    /* Animations */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-up { animation: fadeIn 1s forwards; }
-    .animate-drop-down { animation: fadeIn 1s forwards; transform: translateY(-20px); }
+    .animate-drop-down { animation: fadeIn 1s forwards; }
 
-    /* Parallax background */
     .parallax-bg {
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
 
-    /* Font classes */
     .font-playfair { font-family: 'Playfair Display', serif; }
     .font-poppins { font-family: 'Poppins', sans-serif; }
     .font-inter { font-family: 'Inter', sans-serif; }
     .font-montserrat { font-family: 'Montserrat', sans-serif; }
     .font-cinzel { font-family: 'Cinzel', serif; }
 
-    /* Navigation link styles */
     .nav-link {
       position: relative;
       font-family: 'Montserrat', sans-serif;
@@ -70,22 +80,21 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+      background: linear-gradient(90deg, #10b981, #065f46);
       transition: width 0.3s ease;
     }
     .nav-link:hover::after {
       width: 100%;
     }
     .nav-link.active {
-      background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+      background: linear-gradient(90deg, #10b981, #065f46);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    /* Hero text effects */
     .hero-title {
-      text-shadow: 2px 4px 12px rgba(0,0,0,0.4);
+      text-shadow: 2px 4px 12px rgba(0,0,0,0.5);
       letter-spacing: -0.5px;
       line-height: 1.1;
     }
@@ -94,168 +103,284 @@
       letter-spacing: 0.3px;
     }
 
-    /* Form focus states */
-    input:focus, textarea:focus {
+    input:focus, textarea:focus, select:focus {
       outline: none;
-      border-color: #3b82f6;
+      border-color: #10b981;
       ring: 2px;
-      ring-color: rgba(59, 130, 246, 0.2);
+      ring-color: rgba(16, 185, 129, 0.2);
+    }
+
+    .contact-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(16, 185, 129, 0.15);
     }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-inter overflow-x-hidden">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full z-50 shadow-md backdrop-blur-md bg-white/30 animate-drop-down">
+  <nav class="fixed top-0 left-0 w-full z-50 shadow-md backdrop-blur-md bg-white/95 animate-drop-down border-b border-denukan-light-green/20">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-xl md:text-2xl font-bold text-gray-900 font-playfair">
-        Denukan Network Limited, UK
+      <h1 class="text-xl md:text-2xl font-bold font-cinzel bg-gradient-to-r from-denukan-dark-blue via-denukan-blue to-denukan-dark-green bg-clip-text text-transparent">
+        DENUKAN network uk br.ltd
       </h1>
-      <div class="space-x-6 text-gray-800 font-medium">
-        <a href="index.html" class="hover:text-blue-600 transition">Home</a>
-        <a href="about.html" class="hover:text-blue-600 transition">About</a>
-        <a href="services.html" class="hover:text-blue-600 transition">Services</a>
-        <a href="contact.html" class="hover:text-blue-600 transition font-semibold text-blue-600">Contact</a>
+      <div class="space-x-6">
+        <a href="index.html" class="nav-link text-denukan-dark-blue">Home</a>
+        <a href="about.html" class="nav-link text-denukan-dark-blue">About</a>
+        <a href="services.html" class="nav-link text-denukan-dark-blue">Services</a>
+        <a href="contact.html" class="nav-link active text-denukan-dark-blue">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="relative h-96 flex items-center justify-center text-center hero-bg parallax-bg">
-    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-    <div class="relative z-10 px-6 max-w-3xl">
-      <h2 class="text-5xl md:text-6xl font-playfair font-bold text-white mb-6 animate-fade-up">Get in Touch</h2>
-      <p class="text-lg md:text-xl text-gray-100 font-poppins animate-fade-up">
-        Contact us for inquiries, consultations, or collaborations. We're here to help.
+    <div class="absolute inset-0 bg-gradient-to-b from-denukan-dark-blue/80 via-denukan-dark-blue/70 to-denukan-dark-green/80"></div>
+    <div class="relative z-10 px-6 max-w-4xl">
+      <h2 class="hero-title text-5xl md:text-7xl font-cinzel font-bold text-white mb-6 animate-fade-up">
+        Get in <span class="bg-gradient-to-r from-denukan-light-green to-denukan-green bg-clip-text text-transparent">Touch</span>
+      </h2>
+      <p class="hero-subtitle text-xl md:text-2xl text-gray-100 font-poppins animate-fade-up font-light">
+        Let's discuss how we can transform your business with our technology solutions
+      </p>
+      <p class="hero-subtitle text-lg md:text-xl text-denukan-light-green mt-4 font-poppins animate-fade-up font-medium">
+        Available across the UK and Nigeria
       </p>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact Information Cards -->
   <section class="max-w-6xl mx-auto py-20 px-6">
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      
+      <!-- UK Office -->
+      <div class="contact-card bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-green">
+        <div class="w-16 h-16 bg-denukan-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-denukan-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-3">UK Office</h3>
+        <p class="text-gray-600 font-poppins mb-2">London, United Kingdom</p>
+        <p class="text-sm text-denukan-green font-semibold font-poppins">Headquarters</p>
+      </div>
+
+      <!-- Nigeria Office -->
+      <div class="contact-card bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-dark-green">
+        <div class="w-16 h-16 bg-denukan-dark-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-denukan-dark-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-3">Nigeria Office</h3>
+        <p class="text-gray-600 font-poppins mb-2">Lagos, Nigeria</p>
+        <p class="text-sm text-denukan-dark-green font-semibold font-poppins">Est. 2014 - 10+ Years</p>
+      </div>
+
+      <!-- 24/7 Support -->
+      <div class="contact-card bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-blue">
+        <div class="w-16 h-16 bg-denukan-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-denukan-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-3">24/7 Support</h3>
+        <p class="text-gray-600 font-poppins mb-2">Round-the-clock technical assistance</p>
+        <p class="text-sm text-denukan-blue font-semibold font-poppins">Always Available</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="max-w-6xl mx-auto px-6 pb-20">
     <div class="grid md:grid-cols-2 gap-12">
+      
       <!-- Contact Info -->
       <div class="animate-fade-up">
-        <h3 class="text-3xl font-playfair font-bold mb-6 text-gray-900">Let's Start a Conversation</h3>
-        <p class="text-gray-700 font-poppins mb-8 text-lg">
-          Whether you're looking for technical support, workforce solutions, or consultancy services, our team is ready to assist you.
+        <h3 class="text-4xl font-cinzel font-bold mb-6 text-denukan-dark-blue">Let's Start a Conversation</h3>
+        <div class="w-24 h-1 bg-gradient-to-r from-denukan-green to-denukan-dark-green mb-8"></div>
+        <p class="text-gray-700 font-poppins mb-8 text-lg leading-relaxed">
+          Whether you're looking for AI-driven financial consultancy, core banking software, ISP services, or comprehensive business advisory, our expert team is ready to help you achieve your goals.
         </p>
 
-        <div class="space-y-6">
+        <div class="space-y-6 mb-8">
           <div class="flex items-start">
-            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-denukan-green/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+              <svg class="w-6 h-6 text-denukan-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
             </div>
             <div>
-              <h4 class="font-semibold text-gray-900 font-poppins mb-1">Email Us</h4>
+              <h4 class="font-semibold text-denukan-dark-blue font-poppins mb-1">Email Us</h4>
               <p class="text-gray-600 font-poppins">info@denukan.co.uk</p>
+              <p class="text-gray-600 font-poppins">support@denukan.co.uk</p>
             </div>
           </div>
 
           <div class="flex items-start">
-            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-denukan-dark-green/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+              <svg class="w-6 h-6 text-denukan-dark-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
             </div>
             <div>
-              <h4 class="font-semibold text-gray-900 font-poppins mb-1">Call Us</h4>
-              <p class="text-gray-600 font-poppins">+44 (0) 20 XXXX XXXX</p>
+              <h4 class="font-semibold text-denukan-dark-blue font-poppins mb-1">Call Us</h4>
+              <p class="text-gray-600 font-poppins">UK: +44 7552 184971</p>
+              <p class="text-gray-600 font-poppins">Nigeria: +234 8083632897</p>
             </div>
           </div>
 
           <div class="flex items-start">
-            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            <div class="w-12 h-12 bg-denukan-blue/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+              <svg class="w-6 h-6 text-denukan-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
               </svg>
             </div>
             <div>
-              <h4 class="font-semibold text-gray-900 font-poppins mb-1">Visit Us</h4>
-              <p class="text-gray-600 font-poppins">London, United Kingdom</p>
+              <h4 class="font-semibold text-denukan-dark-blue font-poppins mb-1">Visit Our Website</h4>
+              <p class="text-gray-600 font-poppins">www.denukan.co.uk</p>
+              <p class="text-gray-600 font-poppins">www.denukan.com (Nigeria)</p>
             </div>
           </div>
         </div>
 
-        <div class="mt-8 p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl">
-          <h4 class="font-semibold text-gray-900 font-poppins mb-2">Business Hours</h4>
-          <p class="text-gray-700 font-poppins text-sm">Monday - Friday: 9:00 AM - 6:00 PM</p>
-          <p class="text-gray-700 font-poppins text-sm">Saturday - Sunday: Closed</p>
+        <div class="bg-gradient-to-br from-denukan-green/10 to-denukan-dark-green/10 p-6 rounded-xl border-l-4 border-denukan-green">
+          <h4 class="font-semibold text-denukan-dark-blue font-poppins mb-3 flex items-center">
+            <svg class="w-5 h-5 mr-2 text-denukan-green" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+            </svg>
+            Business Hours
+          </h4>
+          <p class="text-gray-700 font-poppins text-sm mb-1">Monday - Friday: 9:00 AM - 6:00 PM (GMT)</p>
+          <p class="text-gray-700 font-poppins text-sm mb-1">Saturday: 10:00 AM - 2:00 PM (GMT)</p>
+          <p class="text-gray-700 font-poppins text-sm">Sunday: Closed</p>
+          <p class="text-denukan-green font-poppins text-sm mt-3 font-semibold">
+            * Technical support available 24/7
+          </p>
         </div>
       </div>
 
       <!-- Contact Form -->
       <div class="animate-fade-up">
-        <form class="bg-white p-8 rounded-2xl shadow-xl space-y-6">
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 font-poppins mb-2">Full Name *</label>
-            <input 
-              type="text" 
-              placeholder="John Doe" 
-              required
-              class="w-full p-4 rounded-lg border border-gray-300 focus:border-blue-600 focus:ring focus:ring-blue-200 transition font-poppins"
-            >
-          </div>
+        <div class="bg-white p-8 rounded-2xl shadow-2xl border-t-4 border-denukan-green">
+          <h3 class="text-3xl font-cinzel font-bold text-denukan-dark-blue mb-6">Send Us a Message</h3>
+          
+          <form class="space-y-6">
+            <div>
+              <label class="block text-sm font-semibold text-denukan-dark-blue font-poppins mb-2">Full Name *</label>
+              <input 
+                type="text" 
+                placeholder="John Doe" 
+                required
+                class="w-full p-4 rounded-lg border-2 border-gray-200 focus:border-denukan-green transition font-poppins"
+              >
+            </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 font-poppins mb-2">Email Address *</label>
-            <input 
-              type="email" 
-              placeholder="john@example.com" 
-              required
-              class="w-full p-4 rounded-lg border border-gray-300 focus:border-blue-600 focus:ring focus:ring-blue-200 transition font-poppins"
-            >
-          </div>
+            <div>
+              <label class="block text-sm font-semibold text-denukan-dark-blue font-poppins mb-2">Email Address *</label>
+              <input 
+                type="email" 
+                placeholder="john@example.com" 
+                required
+                class="w-full p-4 rounded-lg border-2 border-gray-200 focus:border-denukan-green transition font-poppins"
+              >
+            </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 font-poppins mb-2">Phone Number</label>
-            <input 
-              type="tel" 
-              placeholder="+44 XXX XXXX XXXX" 
-              class="w-full p-4 rounded-lg border border-gray-300 focus:border-blue-600 focus:ring focus:ring-blue-200 transition font-poppins"
-            >
-          </div>
+            <div>
+              <label class="block text-sm font-semibold text-denukan-dark-blue font-poppins mb-2">Phone Number</label>
+              <input 
+                type="tel" 
+                placeholder="+44 XXX XXXX XXXX" 
+                class="w-full p-4 rounded-lg border-2 border-gray-200 focus:border-denukan-green transition font-poppins"
+              >
+            </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 font-poppins mb-2">Subject *</label>
-            <input 
-              type="text" 
-              placeholder="How can we help?" 
-              required
-              class="w-full p-4 rounded-lg border border-gray-300 focus:border-blue-600 focus:ring focus:ring-blue-200 transition font-poppins"
-            >
-          </div>
+            <div>
+              <label class="block text-sm font-semibold text-denukan-dark-blue font-poppins mb-2">Service Interest</label>
+              <select class="w-full p-4 rounded-lg border-2 border-gray-200 focus:border-denukan-green transition font-poppins">
+                <option>Select a service...</option>
+                <option>AI-Driven Financial Consultancy</option>
+                <option>Core Banking Software</option>
+                <option>Internet Service Provider (ISP)</option>
+                <option>Telecommunications Consulting</option>
+                <option>Advisory Services for MFI/MFB</option>
+                <option>Asset Management</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 font-poppins mb-2">Message *</label>
-            <textarea 
-              placeholder="Tell us more about your inquiry..." 
-              rows="6" 
-              required
-              class="w-full p-4 rounded-lg border border-gray-300 focus:border-blue-600 focus:ring focus:ring-blue-200 transition font-poppins resize-none"
-            ></textarea>
-          </div>
+            <div>
+              <label class="block text-sm font-semibold text-denukan-dark-blue font-poppins mb-2">Subject *</label>
+              <input 
+                type="text" 
+                placeholder="How can we help you?" 
+                required
+                class="w-full p-4 rounded-lg border-2 border-gray-200 focus:border-denukan-green transition font-poppins"
+              >
+            </div>
 
-          <button type="submit" class="btn-primary w-full text-center py-4 text-lg">
-            Send Message
-          </button>
+            <div>
+              <label class="block text-sm font-semibold text-denukan-dark-blue font-poppins mb-2">Message *</label>
+              <textarea 
+                placeholder="Tell us more about your needs and how we can help transform your business..." 
+                rows="6" 
+                required
+                class="w-full p-4 rounded-lg border-2 border-gray-200 focus:border-denukan-green transition font-poppins resize-none"
+              ></textarea>
+            </div>
 
-          <p class="text-sm text-gray-500 font-poppins text-center">
-            * Required fields
-          </p>
-        </form>
+            <button type="submit" class="btn-primary w-full text-center py-4 text-lg font-montserrat">
+              Send Message
+            </button>
+
+            <p class="text-sm text-gray-500 font-poppins text-center">
+              * Required fields | We typically respond within 24 hours
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="text-center py-8 border-t mt-16 bg-gray-900 text-gray-200 font-poppins">
-    © 2026 Denukan Network Limited, United Kingdom
+  <!-- Why Contact Us -->
+  <section class="bg-gradient-to-br from-denukan-dark-blue to-denukan-dark-green py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-white mb-4">Why Reach Out to Denukan?</h2>
+        <div class="w-24 h-1 bg-denukan-light-green mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8 text-white text-center">
+        <div>
+          <div class="text-5xl font-bold text-denukan-light-green mb-3">10+</div>
+          <p class="font-poppins text-gray-200">Years of Excellence</p>
+        </div>
+        <div>
+          <div class="text-5xl font-bold text-denukan-light-green mb-3">500+</div>
+          <p class="font-poppins text-gray-200">Satisfied Clients</p>
+        </div>
+        <div>
+          <div class="text-5xl font-bold text-denukan-light-green mb-3">24/7</div>
+          <p class="font-poppins text-gray-200">Technical Support</p>
+        </div>
+        <div>
+          <div class="text-5xl font-bold text-denukan-light-green mb-3">2</div>
+          <p class="font-poppins text-gray-200">International Offices</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center py-8 border-t bg-denukan-dark-blue text-gray-200 font-poppins">
+    <p class="mb-2">© 2026 DENUKAN network uk br.ltd | United Kingdom </p>
+    <p class="text-sm text-denukan-light-green">Brilliant Technology Solutions & Exceptional Financial Consultancy</p>
   </footer>
 
-  <!-- ScrollReveal JS -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <script>
     ScrollReveal().reveal('.animate-fade-up', {
@@ -273,10 +398,10 @@
       heroBg.style.backgroundPositionY = offset * 0.5 + 'px';
     });
 
-    // Form submission handler (you can connect to backend)
+    // Form submission handler
     document.querySelector('form').addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Thank you for your message! We will get back to you soon.');
+      alert('Thank you for contacting Denukan Network Limited! We will get back to you within 24 hours.');
       e.target.reset();
     });
   </script>

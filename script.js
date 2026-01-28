@@ -1,6 +1,6 @@
 const pageContent = document.getElementById("page-content");
 
-// Define page HTML files
+// Map of page snippets
 const pages = {
   home: "pages/home.html",
   about: "pages/about.html",
@@ -8,26 +8,27 @@ const pages = {
   contact: "pages/contact.html"
 };
 
-// Function to load page
+// Load page content dynamically
 function loadPage(page) {
   fetch(pages[page])
     .then(res => res.text())
     .then(html => {
       pageContent.innerHTML = html;
-      window.scrollTo(0, 0); // scroll to top
-      // Re-run any JS needed for the loaded content, e.g., animations
+      window.scrollTo(0,0);
+
+      // Re-run scroll animations for services page
       if (page === "services") initScrollReveal();
     });
 }
 
-// Initialize scroll animations for Services page
+// Initialize scroll animations
 function initScrollReveal() {
   if (window.ScrollReveal) {
     ScrollReveal().reveal('.service-card', { interval: 200, distance: '20px', origin: 'bottom', opacity: 0 });
   }
 }
 
-// Navbar click events
+// Navbar links
 document.querySelectorAll(".nav-link").forEach(link => {
   link.addEventListener("click", e => {
     e.preventDefault();
@@ -37,7 +38,7 @@ document.querySelectorAll(".nav-link").forEach(link => {
   });
 });
 
-// Highlight active nav link
+// Highlight active link
 function setActiveLink(activePage) {
   document.querySelectorAll(".nav-link").forEach(link => {
     if (link.getAttribute("data-page") === activePage) {
@@ -48,5 +49,5 @@ function setActiveLink(activePage) {
   });
 }
 
-// Load default page on start
+// Load default page
 window.addEventListener("DOMContentLoaded", () => loadPage("home"));
