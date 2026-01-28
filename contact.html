@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Denukan UK</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@400;600&family=Montserrat:wght@500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   
   <style>
@@ -52,6 +52,47 @@
     .font-playfair { font-family: 'Playfair Display', serif; }
     .font-poppins { font-family: 'Poppins', sans-serif; }
     .font-inter { font-family: 'Inter', sans-serif; }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+
+    /* Navigation link styles */
+    .nav-link {
+      position: relative;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .nav-link.active {
+      background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Hero text effects */
+    .hero-title {
+      text-shadow: 2px 4px 12px rgba(0,0,0,0.4);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+    .hero-subtitle {
+      text-shadow: 1px 2px 8px rgba(0,0,0,0.3);
+      letter-spacing: 0.3px;
+    }
 
     /* Form focus states */
     input:focus, textarea:focus {
