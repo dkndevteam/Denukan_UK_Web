@@ -3,13 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - Denukan UK</title>
+  <title>About Us - Denukan Network Limited UK | Our Story & Values</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@400;600&family=Montserrat:wght@500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'denukan-green': '#10b981',
+            'denukan-light-green': '#6ee7b7',
+            'denukan-dark-blue': '#0f172a',
+            'denukan-blue': '#1e40af',
+            'denukan-dark-green': '#065f46',
+          }
+        }
+      }
+    }
+  </script>
   
   <style>
-    /* Hero background */
     .hero-bg {
       background-image: url('https://www.focus-info.org/wp-content/uploads/2022/07/london-blog-1.jpg');
       background-size: cover;
@@ -17,7 +31,6 @@
       background-attachment: fixed;
     }
 
-    /* Service card hover effect */
     .service-card img {
       transition: transform 0.5s ease;
     }
@@ -25,45 +38,41 @@
       transform: scale(1.05);
     }
 
-    /* Buttons */
     .btn-primary {
       display: inline-block;
-      background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+      background: linear-gradient(135deg, #10b981, #065f46);
       color: white;
       font-weight: 600;
-      padding: 0.75rem 1.5rem;
+      padding: 0.875rem 2rem;
       border-radius: 0.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
     }
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
     }
 
-    /* Animations */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-in { animation: fadeIn 1s forwards; }
     .animate-fade-up { animation: fadeIn 1s forwards; }
-    .animate-drop-down { animation: fadeIn 1s forwards; transform: translateY(-20px); }
+    .animate-drop-down { animation: fadeIn 1s forwards; }
 
-    /* Parallax background */
     .parallax-bg {
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
 
-    /* Font classes */
     .font-playfair { font-family: 'Playfair Display', serif; }
     .font-poppins { font-family: 'Poppins', sans-serif; }
     .font-inter { font-family: 'Inter', sans-serif; }
     .font-montserrat { font-family: 'Montserrat', sans-serif; }
     .font-cinzel { font-family: 'Cinzel', serif; }
 
-    /* Navigation link styles */
     .nav-link {
       position: relative;
       font-family: 'Montserrat', sans-serif;
@@ -78,22 +87,21 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+      background: linear-gradient(90deg, #10b981, #065f46);
       transition: width 0.3s ease;
     }
     .nav-link:hover::after {
       width: 100%;
     }
     .nav-link.active {
-      background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+      background: linear-gradient(90deg, #10b981, #065f46);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    /* Hero text effects */
     .hero-title {
-      text-shadow: 2px 4px 12px rgba(0,0,0,0.4);
+      text-shadow: 2px 4px 12px rgba(0,0,0,0.5);
       letter-spacing: -0.5px;
       line-height: 1.1;
     }
@@ -101,97 +109,275 @@
       text-shadow: 1px 2px 8px rgba(0,0,0,0.3);
       letter-spacing: 0.3px;
     }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 3rem;
+      padding-bottom: 2rem;
+      border-left: 3px solid #10b981;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -0.75rem;
+      top: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981, #065f46);
+      box-shadow: 0 0 0 4px #fff, 0 0 0 6px #10b981;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-inter overflow-x-hidden">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full z-50 shadow-md backdrop-blur-md bg-white/30 animate-drop-down">
+  <nav class="fixed top-0 left-0 w-full z-50 shadow-md backdrop-blur-md bg-white/95 animate-drop-down border-b border-denukan-light-green/20">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-xl md:text-2xl font-bold text-gray-900 font-playfair">
-        Denukan Network Limited, UK
+      <h1 class="text-xl md:text-2xl font-bold font-cinzel bg-gradient-to-r from-denukan-dark-blue via-denukan-blue to-denukan-dark-green bg-clip-text text-transparent">
+        Denukan Network Limited, United Kingdom
       </h1>
-      <div class="space-x-6 text-gray-800 font-medium">
-        <a href="index.html" class="hover:text-blue-600 transition">Home</a>
-        <a href="about.html" class="hover:text-blue-600 transition font-semibold text-blue-600">About</a>
-        <a href="services.html" class="hover:text-blue-600 transition">Services</a>
-        <a href="contact.html" class="hover:text-blue-600 transition">Contact</a>
+      <div class="space-x-6">
+        <a href="index.html" class="nav-link text-denukan-dark-blue">Home</a>
+        <a href="about.html" class="nav-link active text-denukan-dark-blue">About</a>
+        <a href="services.html" class="nav-link text-denukan-dark-blue">Services</a>
+        <a href="contact.html" class="nav-link text-denukan-dark-blue">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="relative h-screen flex items-center justify-center text-center hero-bg parallax-bg">
-    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-    <div class="relative z-10 px-6 max-w-3xl">
-      <h2 class="text-5xl md:text-6xl font-playfair font-bold text-white mb-6 animate-fade-up">About Us</h2>
-      <p class="text-lg md:text-xl text-gray-100 font-poppins animate-fade-up">
-        Denukan Network Limited is committed to delivering innovative technology, consultancy, and workforce solutions to empower businesses across the UK and beyond.
+    <div class="absolute inset-0 bg-gradient-to-b from-denukan-dark-blue/80 via-denukan-dark-blue/70 to-denukan-dark-green/80"></div>
+    <div class="relative z-10 px-6 max-w-4xl">
+      <h2 class="hero-title text-5xl md:text-7xl font-cinzel font-bold text-white mb-6 animate-fade-up">
+        About <span class="bg-gradient-to-r from-denukan-light-green to-denukan-green bg-clip-text text-transparent">Denukan</span>
+      </h2>
+      <p class="hero-subtitle text-xl md:text-2xl text-gray-100 font-poppins animate-fade-up font-light">
+        10+ Years of Excellence in Technology & Financial Consultancy
+      </p>
+      <p class="hero-subtitle text-lg md:text-xl text-denukan-light-green mt-4 font-poppins animate-fade-up font-medium">
+        Transforming businesses across Nigeria and the United Kingdom
       </p>
     </div>
   </section>
 
-  <!-- About Content -->
+  <!-- Company Overview -->
   <section class="max-w-6xl mx-auto py-20 px-6">
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="animate-fade-up">
-        <h3 class="text-4xl font-playfair font-bold mb-6 text-gray-900">Our Mission</h3>
-        <p class="text-gray-700 font-poppins mb-8 text-lg leading-relaxed">
-          We aim to provide businesses with tailored technology solutions, workforce training, and consultancy services to foster growth and innovation. Our commitment is to deliver excellence in every project we undertake.
+        <h3 class="text-4xl font-cinzel font-bold text-denukan-dark-blue mb-6">Who We Are</h3>
+        <div class="w-24 h-1 bg-gradient-to-r from-denukan-green to-denukan-dark-green mb-6"></div>
+        <p class="text-gray-700 font-poppins text-lg leading-relaxed mb-6">
+          Denukan Network Limited UK is a premier financial consultancy and technology solutions provider, specializing in AI-driven financial services, core banking applications, and strategic business advisory. With our headquarters in the United Kingdom and a thriving branch in Nigeria that has been operational for over 10 years, we have established ourselves as one of the leading technology consultancy firms in the region.
         </p>
-
-        <h3 class="text-4xl font-playfair font-bold mb-6 text-gray-900">Our Vision</h3>
+        <p class="text-gray-700 font-poppins text-lg leading-relaxed mb-6">
+          Our expertise lies in integrating cutting-edge technology into everyday business operations, transforming how organizations leverage financial technology to create value, eliminate operational bottlenecks, and achieve sustainable growth.
+        </p>
         <p class="text-gray-700 font-poppins text-lg leading-relaxed">
-          To be the leading technology and workforce partner in the UK, known for delivering excellence and building long-lasting client relationships that drive sustainable business growth.
+          We serve a diverse clientele including Microfinance Banks (MFBs), Microfinance Institutions (MFIs), FinTech companies, Small and Medium Enterprises (SMEs), and corporations seeking to modernize their technological infrastructure and optimize their financial operations.
         </p>
       </div>
       <div class="animate-fade-up">
-        <img src="https://res.cloudinary.com/dayonuel/image/upload/v1672427196/1672427182029_immhzx.jpg" alt="About Denukan" class="rounded-xl shadow-2xl w-full object-cover h-full animate-float">
+        <img src="https://res.cloudinary.com/dayonuel/image/upload/v1672427196/1672427182029_immhzx.jpg" alt="Denukan Team" class="rounded-2xl shadow-2xl w-full object-cover h-full">
       </div>
     </div>
   </section>
 
-  <!-- Values Section -->
-  <section class="max-w-6xl mx-auto py-20 px-6 bg-white rounded-2xl shadow-lg mb-20">
-    <h2 class="text-4xl font-playfair font-bold text-center mb-12 text-gray-900">Our Core Values</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="text-center p-6 animate-float">
-        <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full mx-auto mb-4 flex items-center justify-center">
-          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
+  <!-- Mission & Vision -->
+  <section class="bg-gradient-to-br from-denukan-dark-blue to-denukan-dark-green py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-denukan-light-green/30">
+          <div class="w-16 h-16 bg-denukan-green rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-3xl font-cinzel font-bold text-white mb-4">Our Mission</h3>
+          <p class="text-gray-200 font-poppins text-lg leading-relaxed">
+            To deliver innovative, top-class technological and financial services that meet the evolving needs of individuals, businesses, and organizations. We are committed to integrating tech-centered solutions into everyday life, transforming operational challenges into opportunities for growth and making this planet a better place to live through technology empowerment.
+          </p>
         </div>
-        <h3 class="text-2xl font-playfair font-semibold mb-3">Excellence</h3>
-        <p class="text-gray-600 font-poppins">Delivering the highest quality in every service we provide</p>
-      </div>
 
-      <div class="text-center p-6 animate-float" style="animation-delay: 0.2s;">
-        <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full mx-auto mb-4 flex items-center justify-center">
-          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-          </svg>
+        <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-denukan-light-green/30">
+          <div class="w-16 h-16 bg-denukan-dark-green rounded-full flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-3xl font-cinzel font-bold text-white mb-4">Our Vision</h3>
+          <p class="text-gray-200 font-poppins text-lg leading-relaxed">
+            To build and empower clients with top-notch technological services while maintaining excellent service delivery standards. We envision becoming the foremost technology and financial consultancy partner across the United Kingdom, Nigeria, and beyond—recognized globally for our innovation, reliability, and transformative impact on businesses.
+          </p>
         </div>
-        <h3 class="text-2xl font-playfair font-semibold mb-3">Innovation</h3>
-        <p class="text-gray-600 font-poppins">Embracing cutting-edge technology and creative solutions</p>
-      </div>
-
-      <div class="text-center p-6 animate-float" style="animation-delay: 0.4s;">
-        <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full mx-auto mb-4 flex items-center justify-center">
-          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-          </svg>
-        </div>
-        <h3 class="text-2xl font-playfair font-semibold mb-3">Integrity</h3>
-        <p class="text-gray-600 font-poppins">Building trust through transparency and ethical practices</p>
       </div>
     </div>
   </section>
 
-  <footer class="text-center py-8 border-t mt-16 bg-gray-900 text-gray-200 font-poppins">
-    © 2026 Denukan Network Limited, United Kingdom
+  <!-- Our Journey -->
+  <section class="max-w-6xl mx-auto py-20 px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-denukan-dark-blue mb-4">Our Journey</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-denukan-green to-denukan-dark-green mx-auto mb-6"></div>
+      <p class="text-xl text-gray-600 font-poppins max-w-3xl mx-auto">
+        A decade of innovation, growth, and transformative impact
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <div class="timeline-item">
+          <h4 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">2014 - Foundation</h4>
+          <p class="text-gray-700 font-poppins leading-relaxed">
+            Denukan Network Limited was established in Nigeria with a vision to revolutionize financial technology consultancy in West Africa.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h4 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">2016 - Market Leadership</h4>
+          <p class="text-gray-700 font-poppins leading-relaxed">
+            Achieved recognition as one of Nigeria's leading technology consultancy firms, serving over 200 clients across the financial services sector.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h4 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">2019 - Service Expansion</h4>
+          <p class="text-gray-700 font-poppins leading-relaxed">
+            Expanded service portfolio to include Core Banking Software, ISP services, and comprehensive telecommunications consulting.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="timeline-item">
+          <h4 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">2022 - AI Integration</h4>
+          <p class="text-gray-700 font-poppins leading-relaxed">
+            Launched AI-powered financial consultancy services, positioning ourselves at the forefront of intelligent financial solutions.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h4 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">2024 - International Expansion</h4>
+          <p class="text-gray-700 font-poppins leading-relaxed">
+            Established UK operations to serve the European market, bringing our proven expertise to a global audience.
+          </p>
+        </div>
+
+        <div class="timeline-item border-l-0">
+          <h4 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">2026 - Continued Growth</h4>
+          <p class="text-gray-700 font-poppins leading-relaxed">
+            Operating across two continents with 500+ satisfied clients and continuing to innovate in financial technology solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="bg-gradient-to-br from-gray-50 to-denukan-light-green/10 py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-denukan-dark-blue mb-4">Our Core Values</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-denukan-green to-denukan-dark-green mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 font-poppins">The principles that guide everything we do</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-green">
+          <div class="w-20 h-20 bg-gradient-to-br from-denukan-green to-denukan-dark-green rounded-full mx-auto mb-6 flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-cinzel font-semibold mb-3 text-denukan-dark-blue">Innovation</h3>
+          <p class="text-gray-600 font-poppins leading-relaxed">
+            We continuously push boundaries, leveraging AI and cutting-edge technology to deliver solutions that redefine industry standards.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-dark-green">
+          <div class="w-20 h-20 bg-gradient-to-br from-denukan-dark-green to-denukan-green rounded-full mx-auto mb-6 flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-cinzel font-semibold mb-3 text-denukan-dark-blue">Integrity</h3>
+          <p class="text-gray-600 font-poppins leading-relaxed">
+            Transparency, ethical practices, and unwavering commitment to client trust form the foundation of every relationship we build.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-blue">
+          <div class="w-20 h-20 bg-gradient-to-br from-denukan-blue to-denukan-dark-blue rounded-full mx-auto mb-6 flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-cinzel font-semibold mb-3 text-denukan-dark-blue">Excellence</h3>
+          <p class="text-gray-600 font-poppins leading-relaxed">
+            We are committed to delivering exceptional quality in every service, project, and client interaction without compromise.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-green">
+          <div class="w-20 h-20 bg-gradient-to-br from-denukan-green to-denukan-blue rounded-full mx-auto mb-6 flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-cinzel font-semibold mb-3 text-denukan-dark-blue">Client-Centricity</h3>
+          <p class="text-gray-600 font-poppins leading-relaxed">
+            Your success is our success. We tailor every solution to meet your unique needs and strategic objectives.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-dark-green">
+          <div class="w-20 h-20 bg-gradient-to-br from-denukan-dark-green to-denukan-dark-blue rounded-full mx-auto mb-6 flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-cinzel font-semibold mb-3 text-denukan-dark-blue">Reliability</h3>
+          <p class="text-gray-600 font-poppins leading-relaxed">
+            With 24/7 support and proven track record across 500+ projects, we deliver consistent results you can depend on.
+          </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-blue">
+          <div class="w-20 h-20 bg-gradient-to-br from-denukan-blue to-denukan-green rounded-full mx-auto mb-6 flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-cinzel font-semibold mb-3 text-denukan-dark-blue">Global Perspective</h3>
+          <p class="text-gray-600 font-poppins leading-relaxed">
+            Operating across Nigeria and the UK, we combine local expertise with international best practices for superior outcomes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto py-20 px-6 text-center">
+    <div class="bg-gradient-to-r from-denukan-dark-blue to-denukan-dark-green rounded-2xl p-12 shadow-2xl">
+      <h2 class="text-4xl font-cinzel font-bold text-white mb-4">Partner With Excellence</h2>
+      <p class="text-xl text-denukan-light-green font-poppins mb-8">
+        Join 500+ organizations that trust Denukan for transformative technology solutions
+      </p>
+      <a href="contact.html" class="inline-block bg-white text-denukan-dark-blue font-semibold px-8 py-4 rounded-lg hover:bg-denukan-light-green transition transform hover:-translate-y-1 font-montserrat">
+        Start Your Journey With Us
+      </a>
+    </div>
+  </section>
+
+  <footer class="text-center py-8 border-t bg-denukan-dark-blue text-gray-200 font-poppins">
+    <p class="mb-2">© 2026 Denukan Network Limited | United Kingdom & Nigeria</p>
+    <p class="text-sm text-denukan-light-green">Brilliant Technology Solutions & Exceptional Financial Consultancy</p>
   </footer>
 
-  <!-- ScrollReveal JS -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <script>
     ScrollReveal().reveal('.animate-fade-up', {
@@ -201,20 +387,6 @@
       duration: 1000,
       easing: 'ease-out',
       interval: 200,
-    });
-
-    const floatCards = document.querySelectorAll('.animate-float');
-    floatCards.forEach(card => {
-      card.animate([
-        { transform: 'translateY(0px)' },
-        { transform: 'translateY(-10px)' },
-        { transform: 'translateY(0px)' }
-      ], {
-        duration: 4000,
-        iterations: Infinity,
-        direction: 'alternate',
-        easing: 'ease-in-out'
-      });
     });
 
     const heroBg = document.querySelector('.parallax-bg');
