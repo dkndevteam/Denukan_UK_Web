@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Denukan Network Limited UK | AI-Powered Financial Technology Solutions</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://territorial-bronze-akh4kaf146.edgeone.app/dkn_logo.png">
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@400;600&family=Montserrat:wght@500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
 
@@ -27,29 +30,16 @@
   </script>
 
   <style>
-    /* Hero background */
     .hero-bg {
       background-image: url('https://cdn.sanity.io/images/uqxwe2qj/production/62db3c671745e98cb27690dff96f8033d2bb7f35-2048x1010.jpg?q=80&auto=format&fit=clip&w=1440');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
-
-    /* Service card hover effect */
-    .service-card {
-      transition: all 0.4s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-8px);
-    }
-    .service-card img {
-      transition: transform 0.5s ease;
-    }
-    .service-card:hover img {
-      transform: scale(1.05);
-    }
-
-    /* Buttons */
+    .service-card { transition: all 0.4s ease; }
+    .service-card:hover { transform: translateY(-8px); }
+    .service-card img { transition: transform 0.5s ease; }
+    .service-card:hover img { transform: scale(1.05); }
     .btn-primary {
       display: inline-block;
       background: linear-gradient(135deg, #10b981, #065f46);
@@ -64,30 +54,22 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
     }
-
-    /* Animations */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-up { animation: fadeIn 1s forwards; }
     .animate-drop-down { animation: fadeIn 1s forwards; }
-
-    /* Parallax background */
     .parallax-bg {
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
-
-    /* Font classes */
     .font-playfair { font-family: 'Playfair Display', serif; }
     .font-poppins { font-family: 'Poppins', sans-serif; }
     .font-inter { font-family: 'Inter', sans-serif; }
     .font-montserrat { font-family: 'Montserrat', sans-serif; }
     .font-cinzel { font-family: 'Cinzel', serif; }
-
-    /* Navigation link styles */
     .nav-link {
       position: relative;
       font-family: 'Montserrat', sans-serif;
@@ -105,17 +87,13 @@
       background: linear-gradient(90deg, #10b981, #065f46);
       transition: width 0.3s ease;
     }
-    .nav-link:hover::after {
-      width: 100%;
-    }
+    .nav-link:hover::after { width: 100%; }
     .nav-link.active {
       background: linear-gradient(90deg, #10b981, #065f46);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
-    /* Hero text effects */
     .hero-title {
       text-shadow: 2px 4px 12px rgba(0,0,0,0.5);
       letter-spacing: -0.5px;
@@ -125,14 +103,25 @@
       text-shadow: 1px 2px 8px rgba(0,0,0,0.3);
       letter-spacing: 0.3px;
     }
-
-    /* Stats counter animation */
     @keyframes countUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .stat-item {
-      animation: countUp 0.8s ease-out forwards;
+    .stat-item { animation: countUp 0.8s ease-out forwards; }
+
+    /* LOGO STYLES */
+    .nav-logo {
+      height: 100px;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+    .footer-logo {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.90;
     }
   </style>
 </head>
@@ -141,9 +130,12 @@
   <!-- Navigation -->
   <nav class="fixed top-0 left-0 w-full z-50 shadow-md backdrop-blur-md bg-white/95 animate-drop-down border-b border-denukan-light-green/20">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-xl md:text-2xl font-bold font-cinzel bg-gradient-to-r from-denukan-dark-blue via-denukan-blue to-denukan-dark-green bg-clip-text text-transparent">
-        DENUKAN network uk br.ltd
-      </h1>
+      <div class="flex items-center gap-3">
+        <img src="https://territorial-bronze-akh4kaf146.edgeone.app/dkn_logo.png" alt="Denukan Logo" class="nav-logo" onerror="this.style.display='none'">
+        <h1 class="text-xl md:text-2xl font-bold font-cinzel bg-gradient-to-r from-denukan-dark-blue via-denukan-blue to-denukan-dark-green bg-clip-text text-transparent">
+          DENUKAN network uk br.ltd
+        </h1>
+      </div>
       <div class="space-x-6">
         <a href="index.html" class="nav-link active text-denukan-dark-blue">Home</a>
         <a href="about.html" class="nav-link text-denukan-dark-blue">About</a>
@@ -201,7 +193,6 @@
         Denukan Network Limited UK is a premier financial consultancy firm powered by artificial intelligence and cutting-edge technology. With over 10 years of proven excellence in Nigeria and expanding operations in the United Kingdom, we are redefining how businesses leverage technology for financial success.
       </p>
     </div>
-
     <div class="grid md:grid-cols-2 gap-12 items-center mt-16">
       <div>
         <h3 class="text-3xl font-cinzel font-bold text-denukan-dark-blue mb-4">Our Mission</h3>
@@ -229,57 +220,38 @@
           Comprehensive technology and financial services designed to propel your business forward
         </p>
       </div>
-
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Service 1 -->
         <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-denukan-green">
           <img src="https://www.denukan.com/static/media/black-people.00443de929584c6079bb.webp" alt="Financial Consultancy" class="w-full h-56 object-cover">
           <div class="p-6">
             <div class="w-12 h-12 bg-denukan-green/10 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-denukan-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-              </svg>
+              <svg class="w-6 h-6 text-denukan-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
             </div>
             <h3 class="text-2xl font-cinzel font-semibold mb-3 text-denukan-dark-blue">AI-Driven Financial Consultancy</h3>
-            <p class="text-gray-700 font-poppins mb-4 leading-relaxed">
-              Strategic advisory services for Microfinance Banks, FinTechs, and SMEs focusing on operational excellence, financial optimization, and capital structure.
-            </p>
+            <p class="text-gray-700 font-poppins mb-4 leading-relaxed">Strategic advisory services for Microfinance Banks, FinTechs, and SMEs focusing on operational excellence, financial optimization, and capital structure.</p>
           </div>
         </div>
-
-        <!-- Service 2 -->
         <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-denukan-dark-green">
           <img src="https://res.cloudinary.com/dayonuel/image/upload/v1672427196/1672427182029_immhzx.jpg" alt="Core Banking" class="w-full h-56 object-cover">
           <div class="p-6">
             <div class="w-12 h-12 bg-denukan-dark-green/10 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-denukan-dark-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-              </svg>
+              <svg class="w-6 h-6 text-denukan-dark-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             </div>
             <h3 class="text-2xl font-cinzel font-semibold mb-3 text-denukan-dark-blue">Core Banking Software</h3>
-            <p class="text-gray-700 font-poppins mb-4 leading-relaxed">
-              Advanced banking applications with NIBSS and Interswitch integration, delivering seamless financial operations for modern institutions.
-            </p>
+            <p class="text-gray-700 font-poppins mb-4 leading-relaxed">Advanced banking applications with NIBSS and Interswitch integration, delivering seamless financial operations for modern institutions.</p>
           </div>
         </div>
-
-        <!-- Service 3 -->
         <div class="service-card bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-denukan-blue">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaxKUxkDUydF0Ncef5X5X-JKB5xfqaNnXEwg&s" alt="ISP Services" class="w-full h-56 object-cover">
           <div class="p-6">
             <div class="w-12 h-12 bg-denukan-blue/10 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-denukan-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-              </svg>
+              <svg class="w-6 h-6 text-denukan-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
             </div>
             <h3 class="text-2xl font-cinzel font-semibold mb-3 text-denukan-dark-blue">Internet Service Provider</h3>
-            <p class="text-gray-700 font-poppins mb-4 leading-relaxed">
-              High-speed, reliable internet and intranet solutions with comprehensive infrastructure setup and 24/7 technical support.
-            </p>
+            <p class="text-gray-700 font-poppins mb-4 leading-relaxed">High-speed, reliable internet and intranet solutions with comprehensive infrastructure setup and 24/7 technical support.</p>
           </div>
         </div>
       </div>
-
       <div class="text-center mt-12">
         <a href="services.html" class="btn-primary">Explore All Services</a>
       </div>
@@ -292,34 +264,22 @@
       <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-denukan-dark-blue mb-4">Why Choose Denukan</h2>
       <div class="w-24 h-1 bg-gradient-to-r from-denukan-green to-denukan-dark-green mx-auto"></div>
     </div>
-
     <div class="grid md:grid-cols-2 gap-8">
       <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-denukan-green">
         <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-4">10+ Years of Proven Excellence</h3>
-        <p class="text-gray-700 font-poppins leading-relaxed">
-          As one of Nigeria's leading technology consultancy firms, we bring a decade of expertise in transforming businesses through innovative solutions.
-        </p>
+        <p class="text-gray-700 font-poppins leading-relaxed">As one of Nigeria's leading technology consultancy firms, we bring a decade of expertise in transforming businesses through innovative solutions.</p>
       </div>
-
       <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-denukan-dark-green">
         <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-4">AI-Powered Innovation</h3>
-        <p class="text-gray-700 font-poppins leading-relaxed">
-          We leverage artificial intelligence and cutting-edge technology to deliver solutions that drive measurable business outcomes and competitive advantage.
-        </p>
+        <p class="text-gray-700 font-poppins leading-relaxed">We leverage artificial intelligence and cutting-edge technology to deliver solutions that drive measurable business outcomes and competitive advantage.</p>
       </div>
-
       <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-denukan-blue">
         <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-4">Comprehensive Service Suite</h3>
-        <p class="text-gray-700 font-poppins leading-relaxed">
-          From core banking software to telecommunications consulting and asset management, we provide end-to-end solutions under one roof.
-        </p>
+        <p class="text-gray-700 font-poppins leading-relaxed">From core banking software to telecommunications consulting and asset management, we provide end-to-end solutions under one roof.</p>
       </div>
-
       <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-denukan-green">
         <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-4">International Presence</h3>
-        <p class="text-gray-700 font-poppins leading-relaxed">
-          With operations in Nigeria and the UK, we combine local expertise with global best practices to serve clients across continents.
-        </p>
+        <p class="text-gray-700 font-poppins leading-relaxed">With operations in Nigeria and the UK, we combine local expertise with global best practices to serve clients across continents.</p>
       </div>
     </div>
   </section>
@@ -328,16 +288,10 @@
   <section class="bg-gradient-to-r from-denukan-dark-blue via-denukan-blue to-denukan-dark-green py-20 px-6">
     <div class="max-w-4xl mx-auto text-center text-white">
       <h2 class="text-4xl md:text-5xl font-cinzel font-bold mb-6">Ready to Transform Your Business?</h2>
-      <p class="text-xl font-poppins mb-8 text-denukan-light-green">
-        Join hundreds of organizations that trust Denukan Network Limited for their technology and financial needs
-      </p>
+      <p class="text-xl font-poppins mb-8 text-denukan-light-green">Join hundreds of organizations that trust Denukan Network Limited for their technology and financial needs</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="contact.html" class="bg-white text-denukan-dark-blue font-semibold px-8 py-4 rounded-lg hover:bg-denukan-light-green transition transform hover:-translate-y-1 font-montserrat">
-          Get Started Today
-        </a>
-        <a href="services.html" class="border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-denukan-dark-blue transition transform hover:-translate-y-1 font-montserrat">
-          View Our Services
-        </a>
+        <a href="contact.html" class="bg-white text-denukan-dark-blue font-semibold px-8 py-4 rounded-lg hover:bg-denukan-light-green transition transform hover:-translate-y-1 font-montserrat">Get Started Today</a>
+        <a href="services.html" class="border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-denukan-dark-blue transition transform hover:-translate-y-1 font-montserrat">View Our Services</a>
       </div>
     </div>
   </section>
@@ -348,68 +302,49 @@
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-denukan-dark-blue mb-4">Our Trusted Partners & Clients</h2>
         <div class="w-24 h-1 bg-gradient-to-r from-denukan-green to-denukan-dark-green mx-auto mb-6"></div>
-        <p class="text-xl text-gray-600 font-poppins max-w-3xl mx-auto">
-          Proud to serve leading financial institutions, microfinance banks, and technology companies across Nigeria and the UK
-        </p>
+        <p class="text-xl text-gray-600 font-poppins max-w-3xl mx-auto">Proud to serve leading financial institutions, microfinance banks, and technology companies across Nigeria and the UK</p>
       </div>
-
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-        <!-- Partner 1 -->
         <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
           <img src="https://dailypost.ng/wp-content/uploads/2023/11/MixCollage-27-Nov-2023-06-21-PM-8039.jpg" alt="Partner" class="w-full h-24 object-contain grayscale hover:grayscale-0 transition-all duration-300">
         </div>
-
-        <!-- Partner 2 -->
         <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3NgnNVfeuW2rHtcjXUe2b4702fpWFaWZ_uQ&s" alt="Partner" class="w-full h-24 object-contain grayscale hover:grayscale-0 transition-all duration-300">
         </div>
-
-        <!-- Partner 3 - Idiigba -->
         <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
           <img src="https://www.denukan.com/static/media/IDIIGBA.ffabaff4de9de2bc0c53.png" alt="Idiigba MFB" class="w-full h-24 object-contain grayscale hover:grayscale-0 transition-all duration-300">
         </div>
-
-        <!-- Partner 4 - Awacash -->
         <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
           <img src="https://media.licdn.com/dms/image/v2/C4D0BAQG08W7R3LhKGg/company-logo_200_200/company-logo_200_200/0/1642888403257/awacashng_logo?e=2147483647&v=beta&t=vjybc9Gw_Bm_ll9735IYte3SA5HhfpNLtOrPF21mJRU" alt="Awacash" class="w-full h-24 object-contain grayscale hover:grayscale-0 transition-all duration-300">
         </div>
-
-        <!-- Partner 5 - Eyowo -->
         <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
           <img src="https://c76c7bbc41.mjedge.net/wp-content/uploads/tc/2023/05/eyowooooo.png" alt="Eyowo" class="w-full h-24 object-contain grayscale hover:grayscale-0 transition-all duration-300">
         </div>
-
-        <!-- Partner 6 -->
         <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXRk39d7sPGNxwISrglMN4-ZUWF27_5tL_LQ&s" alt="Partner" class="w-full h-24 object-contain grayscale hover:grayscale-0 transition-all duration-300">
         </div>
-
-        <!-- Partner 7 -->
         <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtypXWW28_kKkg90tPePlWiAneVQCS716qqw&s" alt="Partner" class="w-full h-24 object-contain grayscale hover:grayscale-0 transition-all duration-300">
         </div>
-
-        <!-- Partner 8 -->
         <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6xVEyfbhUbZ3dCTKvIWx1DcjE0oqoMGrC1g&s" alt="Partner" class="w-full h-24 object-contain grayscale hover:grayscale-0 transition-all duration-300">
         </div>
       </div>
-
       <div class="text-center mt-12">
-        <p class="text-gray-600 font-poppins text-lg">
-          <span class="font-semibold text-denukan-green">500+</span> clients trust us with their technology and financial transformation
-        </p>
+        <p class="text-gray-600 font-poppins text-lg"><span class="font-semibold text-denukan-green">500+</span> clients trust us with their technology and financial transformation</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="text-center py-8 border-t bg-denukan-dark-blue text-gray-200 font-poppins">
+    <div class="flex justify-center mb-4">
+      <img src="https://territorial-bronze-akh4kaf146.edgeone.app/dkn_logo.png" alt="Denukan Logo" class="footer-logo" onerror="this.parentElement.style.display='none'">
+    </div>
     <p class="mb-2">© 2026 Denukan Network Limited | United Kingdom </p>
     <p class="text-sm text-denukan-light-green">Brilliant Technology Solutions & Exceptional Financial Consultancy</p>
   </footer>
 
-  <!-- ScrollReveal JS -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <script>
     ScrollReveal().reveal('.animate-fade-up', {
