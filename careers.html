@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers - DENUKAN network uk br.ltd | Join Our Team</title>
+
+  <link rel="icon" type="image/png" href="https://territorial-bronze-akh4kaf146.edgeone.app/dkn_logo.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@400;600&family=Montserrat:wght@500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'denukan-green': '#10b981',
+            'denukan-light-green': '#6ee7b7',
+            'denukan-dark-blue': '#0f172a',
+            'denukan-blue': '#1e40af',
+            'denukan-dark-green': '#065f46',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1440&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #065f46);
+      color: white;
+      font-weight: 600;
+      padding: 0.875rem 2rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4); }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up { animation: fadeIn 1s forwards; }
+    .animate-drop-down { animation: fadeIn 1s forwards; }
+    .parallax-bg { background-size: cover; background-position: center; background-attachment: fixed; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+    .font-poppins { font-family: 'Poppins', sans-serif; }
+    .font-inter { font-family: 'Inter', sans-serif; }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+    .nav-link {
+      position: relative;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #10b981, #065f46);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active {
+      background: linear-gradient(90deg, #10b981, #065f46);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-title { text-shadow: 2px 4px 12px rgba(0,0,0,0.5); letter-spacing: -0.5px; line-height: 1.1; }
+    .hero-subtitle { text-shadow: 1px 2px 8px rgba(0,0,0,0.3); letter-spacing: 0.3px; }
+
+    /* Job card */
+    .job-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .job-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+    }
+
+    /* Filter buttons */
+    .filter-btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: 2px solid #10b981;
+      color: #10b981;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      background: transparent;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: linear-gradient(135deg, #10b981, #065f46);
+      color: white;
+      border-color: transparent;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.85);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: white;
+      border-radius: 1.5rem;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    /* LOGO */
+    .nav-logo { height: 80px; width: auto; object-fit: contain; mix-blend-mode: multiply; }
+    .footer-logo { height: 70px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.90; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-inter overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full z-50 shadow-md backdrop-blur-md bg-white/95 animate-drop-down border-b border-denukan-light-green/20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <img src="https://territorial-bronze-akh4kaf146.edgeone.app/dkn_logo.png" alt="Denukan Logo" class="nav-logo" onerror="this.style.display='none'">
+        <h1 class="text-xl md:text-2xl font-bold font-cinzel bg-gradient-to-r from-denukan-dark-blue via-denukan-blue to-denukan-dark-green bg-clip-text text-transparent">
+          DENUKAN network uk br.ltd
+        </h1>
+      </div>
+      <div class="space-x-6">
+        <a href="index.html" class="nav-link text-denukan-dark-blue">Home</a>
+        <a href="about.html" class="nav-link text-denukan-dark-blue">About</a>
+        <a href="services.html" class="nav-link text-denukan-dark-blue">Services</a>
+        <a href="contact.html" class="nav-link text-denukan-dark-blue">Contact</a>
+        <a href="careers.html" class="nav-link active text-denukan-dark-blue">Careers</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative h-screen flex items-center justify-center text-center hero-bg parallax-bg">
+    <div class="absolute inset-0 bg-gradient-to-b from-denukan-dark-blue/80 via-denukan-dark-blue/70 to-denukan-dark-green/80"></div>
+    <div class="relative z-10 px-6 max-w-4xl">
+      <h2 class="hero-title text-5xl md:text-7xl font-cinzel font-bold text-white mb-6 animate-fade-up">
+        Join Our <span class="bg-gradient-to-r from-denukan-light-green to-denukan-green bg-clip-text text-transparent">Team</span>
+      </h2>
+      <p class="hero-subtitle text-xl md:text-2xl text-gray-100 font-poppins animate-fade-up font-light">
+        Build the future of financial technology with us
+      </p>
+      <p class="hero-subtitle text-lg md:text-xl text-denukan-light-green mt-4 font-poppins animate-fade-up font-medium">
+        Opportunities across the UK and Nigeria
+      </p>
+      <a href="#open-roles" class="btn-primary mt-8 inline-block animate-fade-up">View Open Positions</a>
+    </div>
+  </section>
+
+  <!-- Why Work With Us -->
+  <section class="max-w-6xl mx-auto py-20 px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-denukan-dark-blue mb-4">Why Work at Denukan?</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-denukan-green to-denukan-dark-green mx-auto mb-6"></div>
+      <p class="text-xl text-gray-600 font-poppins max-w-3xl mx-auto leading-relaxed">
+        We are more than a workplace — we are a movement. Join a team of passionate innovators transforming financial technology across two continents.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-green">
+        <div class="w-16 h-16 bg-gradient-to-br from-denukan-green to-denukan-dark-green rounded-full mx-auto mb-6 flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <h3 class="text-xl font-cinzel font-bold text-denukan-dark-blue mb-3">Innovation First</h3>
+        <p class="text-gray-600 font-poppins leading-relaxed text-sm">Work on cutting-edge AI, fintech, and banking technology that shapes the future of financial services in Africa and the UK.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-dark-green">
+        <div class="w-16 h-16 bg-gradient-to-br from-denukan-dark-green to-denukan-green rounded-full mx-auto mb-6 flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <h3 class="text-xl font-cinzel font-bold text-denukan-dark-blue mb-3">Global Exposure</h3>
+        <p class="text-gray-600 font-poppins leading-relaxed text-sm">Gain international experience working across Nigeria and the United Kingdom with a diverse, world-class team.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-blue">
+        <div class="w-16 h-16 bg-gradient-to-br from-denukan-blue to-denukan-dark-blue rounded-full mx-auto mb-6 flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        </div>
+        <h3 class="text-xl font-cinzel font-bold text-denukan-dark-blue mb-3">Growth & Learning</h3>
+        <p class="text-gray-600 font-poppins leading-relaxed text-sm">Continuous learning, mentorship, and career development opportunities to help you reach your full potential.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-green">
+        <div class="w-16 h-16 bg-gradient-to-br from-denukan-green to-denukan-blue rounded-full mx-auto mb-6 flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        </div>
+        <h3 class="text-xl font-cinzel font-bold text-denukan-dark-blue mb-3">Inclusive Culture</h3>
+        <p class="text-gray-600 font-poppins leading-relaxed text-sm">A collaborative, respectful environment where every voice matters and diversity is our greatest strength.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-dark-green">
+        <div class="w-16 h-16 bg-gradient-to-br from-denukan-dark-green to-denukan-dark-blue rounded-full mx-auto mb-6 flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        </div>
+        <h3 class="text-xl font-cinzel font-bold text-denukan-dark-blue mb-3">Competitive Benefits</h3>
+        <p class="text-gray-600 font-poppins leading-relaxed text-sm">Competitive salaries, flexible working arrangements, health benefits, and performance bonuses.</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl shadow-xl text-center border-t-4 border-denukan-blue">
+        <div class="w-16 h-16 bg-gradient-to-br from-denukan-blue to-denukan-green rounded-full mx-auto mb-6 flex items-center justify-center">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <h3 class="text-xl font-cinzel font-bold text-denukan-dark-blue mb-3">Flexible Working</h3>
+        <p class="text-gray-600 font-poppins leading-relaxed text-sm">Hybrid and remote-friendly roles that support work-life balance without compromising impact and productivity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Roles -->
+  <section id="open-roles" class="bg-gradient-to-br from-gray-50 to-denukan-light-green/10 py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-denukan-dark-blue mb-4">Open Positions</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-denukan-green to-denukan-dark-green mx-auto mb-6"></div>
+        <p class="text-xl text-gray-600 font-poppins max-w-2xl mx-auto">Find your perfect role and become part of our growing team</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex flex-wrap gap-3 justify-center mb-12">
+        <button class="filter-btn active" onclick="filterJobs('all', this)">All Roles</button>
+        <button class="filter-btn" onclick="filterJobs('technology', this)">Technology</button>
+        <button class="filter-btn" onclick="filterJobs('finance', this)">Finance</button>
+        <button class="filter-btn" onclick="filterJobs('operations', this)">Operations</button>
+        <button class="filter-btn" onclick="filterJobs('sales', this)">Sales & BD</button>
+      </div>
+
+      <!-- Job Cards -->
+      <div class="grid md:grid-cols-2 gap-8" id="jobs-grid">
+
+        <!-- Job 1 -->
+        <div class="job-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-4 border-denukan-green" data-category="technology">
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-green bg-denukan-green/10 px-3 py-1 rounded-full">Technology</span>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-xs font-semibold font-montserrat bg-denukan-dark-blue/10 text-denukan-dark-blue px-3 py-1 rounded-full">Full-Time</span>
+                <span class="text-xs font-semibold font-montserrat bg-denukan-blue/10 text-denukan-blue px-3 py-1 rounded-full">UK</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">Senior Software Engineer</h3>
+            <p class="text-denukan-green font-poppins text-sm font-semibold mb-4">Chelmsford, Essex · Hybrid</p>
+            <p class="text-gray-600 font-poppins leading-relaxed mb-6">Lead the development of our core banking software platforms, driving architecture decisions and mentoring junior engineers in a fast-paced fintech environment.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">.NET</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">C#</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">SQL Server</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Azure</span>
+            </div>
+            <button onclick="openModal('job1')" class="btn-primary w-full text-center">View Details & Apply</button>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="job-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-4 border-denukan-dark-green" data-category="finance">
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-dark-green bg-denukan-dark-green/10 px-3 py-1 rounded-full">Finance</span>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-xs font-semibold font-montserrat bg-denukan-dark-blue/10 text-denukan-dark-blue px-3 py-1 rounded-full">Full-Time</span>
+                <span class="text-xs font-semibold font-montserrat bg-denukan-blue/10 text-denukan-blue px-3 py-1 rounded-full">Nigeria</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">Financial Consultant</h3>
+            <p class="text-denukan-dark-green font-poppins text-sm font-semibold mb-4">Lagos, Nigeria · On-site</p>
+            <p class="text-gray-600 font-poppins leading-relaxed mb-6">Provide expert financial advisory to MFBs and SMEs, delivering strategic insights on capital structure, risk management, and operational excellence.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">MFB Advisory</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Risk Management</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">CBN Compliance</span>
+            </div>
+            <button onclick="openModal('job2')" class="btn-primary w-full text-center">View Details & Apply</button>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-4 border-denukan-blue" data-category="technology">
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-blue bg-denukan-blue/10 px-3 py-1 rounded-full">Technology</span>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-xs font-semibold font-montserrat bg-denukan-dark-blue/10 text-denukan-dark-blue px-3 py-1 rounded-full">Full-Time</span>
+                <span class="text-xs font-semibold font-montserrat bg-green-100 text-green-700 px-3 py-1 rounded-full">Remote</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">Mobile Developer (Flutter)</h3>
+            <p class="text-denukan-blue font-poppins text-sm font-semibold mb-4">Remote · UK or Nigeria</p>
+            <p class="text-gray-600 font-poppins leading-relaxed mb-6">Build and maintain cross-platform mobile banking applications using Flutter, delivering seamless user experiences for our growing client base across Africa and the UK.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Flutter</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Dart</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">REST APIs</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Firebase</span>
+            </div>
+            <button onclick="openModal('job3')" class="btn-primary w-full text-center">View Details & Apply</button>
+          </div>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="job-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-4 border-denukan-green" data-category="sales">
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-green bg-denukan-green/10 px-3 py-1 rounded-full">Sales & BD</span>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-xs font-semibold font-montserrat bg-denukan-dark-blue/10 text-denukan-dark-blue px-3 py-1 rounded-full">Full-Time</span>
+                <span class="text-xs font-semibold font-montserrat bg-denukan-blue/10 text-denukan-blue px-3 py-1 rounded-full">UK</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">Business Development Manager</h3>
+            <p class="text-denukan-green font-poppins text-sm font-semibold mb-4">Chelmsford, Essex · Hybrid</p>
+            <p class="text-gray-600 font-poppins leading-relaxed mb-6">Drive growth by identifying new business opportunities, building strategic partnerships, and expanding Denukan's presence across the UK financial services market.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">B2B Sales</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">FinTech</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">CRM</span>
+            </div>
+            <button onclick="openModal('job4')" class="btn-primary w-full text-center">View Details & Apply</button>
+          </div>
+        </div>
+
+        <!-- Job 5 -->
+        <div class="job-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-4 border-denukan-dark-green" data-category="operations">
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-dark-green bg-denukan-dark-green/10 px-3 py-1 rounded-full">Operations</span>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-xs font-semibold font-montserrat bg-denukan-dark-blue/10 text-denukan-dark-blue px-3 py-1 rounded-full">Full-Time</span>
+                <span class="text-xs font-semibold font-montserrat bg-denukan-blue/10 text-denukan-blue px-3 py-1 rounded-full">Nigeria</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">IT Support & Network Engineer</h3>
+            <p class="text-denukan-dark-green font-poppins text-sm font-semibold mb-4">Lagos, Nigeria · On-site</p>
+            <p class="text-gray-600 font-poppins leading-relaxed mb-6">Manage and maintain network infrastructure for our ISP clients, providing technical support and ensuring 99.9% uptime across enterprise connectivity solutions.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Networking</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Cisco</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Linux</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">CCNA</span>
+            </div>
+            <button onclick="openModal('job5')" class="btn-primary w-full text-center">View Details & Apply</button>
+          </div>
+        </div>
+
+        <!-- Job 6 -->
+        <div class="job-card bg-white rounded-2xl shadow-xl overflow-hidden border-l-4 border-denukan-blue" data-category="finance">
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-blue bg-denukan-blue/10 px-3 py-1 rounded-full">Finance</span>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-xs font-semibold font-montserrat bg-denukan-dark-blue/10 text-denukan-dark-blue px-3 py-1 rounded-full">Contract</span>
+                <span class="text-xs font-semibold font-montserrat bg-green-100 text-green-700 px-3 py-1 rounded-full">Remote</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">AI & Data Analyst</h3>
+            <p class="text-denukan-blue font-poppins text-sm font-semibold mb-4">Remote · UK or Nigeria</p>
+            <p class="text-gray-600 font-poppins leading-relaxed mb-6">Develop and deploy AI-powered analytics models that drive financial insights for our clients, turning raw data into actionable intelligence for MFBs and FinTechs.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Python</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Machine Learning</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">Power BI</span>
+              <span class="text-xs bg-gray-100 text-gray-600 font-poppins px-3 py-1 rounded-full">SQL</span>
+            </div>
+            <button onclick="openModal('job6')" class="btn-primary w-full text-center">View Details & Apply</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No results message -->
+      <div id="no-results" class="hidden text-center py-16">
+        <p class="text-2xl font-cinzel text-gray-400 mb-2">No roles in this category right now</p>
+        <p class="text-gray-500 font-poppins">Check back soon or send a speculative application to <a href="mailto:info@denukan.co.uk" class="text-denukan-green font-semibold">info@denukan.co.uk</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speculative Application CTA -->
+  <section class="max-w-4xl mx-auto py-20 px-6 text-center">
+    <div class="bg-gradient-to-r from-denukan-dark-blue to-denukan-dark-green rounded-2xl p-12 shadow-2xl">
+      <h2 class="text-4xl font-cinzel font-bold text-white mb-4">Don't See Your Role?</h2>
+      <p class="text-xl text-denukan-light-green font-poppins mb-8">
+        We're always looking for exceptional talent. Send us your CV and tell us how you can contribute to Denukan's mission.
+      </p>
+      <a href="mailto:info@denukan.co.uk?subject=Speculative Application - Denukan Careers" class="inline-block bg-white text-denukan-dark-blue font-semibold px-8 py-4 rounded-lg hover:bg-denukan-light-green transition transform hover:-translate-y-1 font-montserrat">
+        Send Speculative Application
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 border-t bg-denukan-dark-blue text-gray-200 font-poppins">
+    <div class="flex justify-center mb-4">
+      <img src="https://territorial-bronze-akh4kaf146.edgeone.app/dkn_logo.png" alt="Denukan Logo" class="footer-logo" onerror="this.parentElement.style.display='none'">
+    </div>
+    <p class="mb-2">© 2026 DENUKAN network uk br.ltd | United Kingdom</p>
+    <p class="text-sm text-denukan-light-green">Brilliant Technology Solutions & Exceptional Financial Consultancy</p>
+  </footer>
+
+  <!-- Job Detail Modals -->
+  <div id="modal-job1" class="modal-overlay" onclick="closeModalOutside(event, 'job1')">
+    <div class="modal-box">
+      <div class="bg-gradient-to-r from-denukan-dark-blue to-denukan-dark-green p-8 rounded-t-2xl">
+        <button onclick="closeModal('job1')" class="absolute top-4 right-4 text-white/70 hover:text-white text-2xl font-bold">&times;</button>
+        <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-light-green bg-white/10 px-3 py-1 rounded-full">Technology · Full-Time · UK</span>
+        <h2 class="text-3xl font-cinzel font-bold text-white mt-4">Senior Software Engineer</h2>
+        <p class="text-denukan-light-green font-poppins mt-1">Chelmsford, Essex · Hybrid</p>
+      </div>
+      <div class="p-8">
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">About the Role</h4>
+        <p class="text-gray-600 font-poppins leading-relaxed mb-6">We are looking for an experienced Senior Software Engineer to lead the development of our core banking platforms. You will architect scalable solutions, write clean production-grade code, and collaborate with cross-functional teams to deliver world-class fintech products.</p>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Responsibilities</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-6">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Design and develop robust banking software using .NET and C#</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Lead code reviews and mentor junior developers</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Integrate with NIBSS, Interswitch and other payment APIs</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Maintain Azure cloud infrastructure and CI/CD pipelines</li>
+        </ul>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Requirements</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-8">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> 5+ years experience in .NET / C# development</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Strong SQL Server and database design skills</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Experience with REST APIs and microservices architecture</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Fintech or banking domain experience is a plus</li>
+        </ul>
+        <a href="mailto:info@denukan.co.uk?subject=Application - Senior Software Engineer" class="btn-primary w-full text-center block">Apply Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-job2" class="modal-overlay" onclick="closeModalOutside(event, 'job2')">
+    <div class="modal-box">
+      <div class="bg-gradient-to-r from-denukan-dark-blue to-denukan-dark-green p-8 rounded-t-2xl">
+        <button onclick="closeModal('job2')" class="absolute top-4 right-4 text-white/70 hover:text-white text-2xl font-bold">&times;</button>
+        <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-light-green bg-white/10 px-3 py-1 rounded-full">Finance · Full-Time · Nigeria</span>
+        <h2 class="text-3xl font-cinzel font-bold text-white mt-4">Financial Consultant</h2>
+        <p class="text-denukan-light-green font-poppins mt-1">Lagos, Nigeria · On-site</p>
+      </div>
+      <div class="p-8">
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">About the Role</h4>
+        <p class="text-gray-600 font-poppins leading-relaxed mb-6">As a Financial Consultant at Denukan, you will work directly with microfinance banks, FinTechs, and SMEs to deliver strategic advisory services that improve financial performance and ensure regulatory compliance.</p>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Responsibilities</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-6">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Conduct financial health assessments for MFB/MFI clients</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Develop capital adequacy and liquidity management strategies</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Ensure CBN regulatory compliance across client portfolios</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Prepare detailed financial reports and recommendations</li>
+        </ul>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Requirements</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-8">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> 3+ years experience in financial advisory or banking</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Deep knowledge of CBN regulations and MFB operations</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> ACCA, ICAN, or equivalent professional certification preferred</li>
+        </ul>
+        <a href="mailto:info@denukan.co.uk?subject=Application - Financial Consultant" class="btn-primary w-full text-center block">Apply Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-job3" class="modal-overlay" onclick="closeModalOutside(event, 'job3')">
+    <div class="modal-box">
+      <div class="bg-gradient-to-r from-denukan-dark-blue to-denukan-dark-green p-8 rounded-t-2xl">
+        <button onclick="closeModal('job3')" class="absolute top-4 right-4 text-white/70 hover:text-white text-2xl font-bold">&times;</button>
+        <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-light-green bg-white/10 px-3 py-1 rounded-full">Technology · Full-Time · Remote</span>
+        <h2 class="text-3xl font-cinzel font-bold text-white mt-4">Mobile Developer (Flutter)</h2>
+        <p class="text-denukan-light-green font-poppins mt-1">Remote · UK or Nigeria</p>
+      </div>
+      <div class="p-8">
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">About the Role</h4>
+        <p class="text-gray-600 font-poppins leading-relaxed mb-6">Build beautiful, high-performance cross-platform mobile banking apps using Flutter. You'll own the mobile experience for thousands of end users across Africa and the UK.</p>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Responsibilities</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-6">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Develop and ship cross-platform apps using Flutter/Dart</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Integrate REST APIs and real-time banking services</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Implement clean architecture and SOLID principles</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Write unit and integration tests for production code</li>
+        </ul>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Requirements</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-8">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> 3+ years Flutter/Dart development experience</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Published apps on Play Store or App Store</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Strong understanding of state management (Bloc/Riverpod)</li>
+        </ul>
+        <a href="mailto:info@denukan.co.uk?subject=Application - Mobile Developer Flutter" class="btn-primary w-full text-center block">Apply Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-job4" class="modal-overlay" onclick="closeModalOutside(event, 'job4')">
+    <div class="modal-box">
+      <div class="bg-gradient-to-r from-denukan-dark-blue to-denukan-dark-green p-8 rounded-t-2xl">
+        <button onclick="closeModal('job4')" class="absolute top-4 right-4 text-white/70 hover:text-white text-2xl font-bold">&times;</button>
+        <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-light-green bg-white/10 px-3 py-1 rounded-full">Sales & BD · Full-Time · UK</span>
+        <h2 class="text-3xl font-cinzel font-bold text-white mt-4">Business Development Manager</h2>
+        <p class="text-denukan-light-green font-poppins mt-1">Chelmsford, Essex · Hybrid</p>
+      </div>
+      <div class="p-8">
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">About the Role</h4>
+        <p class="text-gray-600 font-poppins leading-relaxed mb-6">Drive Denukan's growth in the UK market by identifying strategic opportunities, nurturing client relationships, and closing deals with financial institutions and technology companies.</p>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Responsibilities</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-6">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Identify and pursue new business opportunities in UK fintech</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Build and maintain a strong sales pipeline using CRM tools</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Present and pitch Denukan's services to C-suite stakeholders</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Meet and exceed quarterly revenue targets</li>
+        </ul>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Requirements</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-8">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> 4+ years B2B sales experience, preferably in fintech or tech</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Proven track record of hitting revenue targets</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Excellent communication and negotiation skills</li>
+        </ul>
+        <a href="mailto:info@denukan.co.uk?subject=Application - Business Development Manager" class="btn-primary w-full text-center block">Apply Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-job5" class="modal-overlay" onclick="closeModalOutside(event, 'job5')">
+    <div class="modal-box">
+      <div class="bg-gradient-to-r from-denukan-dark-blue to-denukan-dark-green p-8 rounded-t-2xl">
+        <button onclick="closeModal('job5')" class="absolute top-4 right-4 text-white/70 hover:text-white text-2xl font-bold">&times;</button>
+        <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-light-green bg-white/10 px-3 py-1 rounded-full">Operations · Full-Time · Nigeria</span>
+        <h2 class="text-3xl font-cinzel font-bold text-white mt-4">IT Support & Network Engineer</h2>
+        <p class="text-denukan-light-green font-poppins mt-1">Lagos, Nigeria · On-site</p>
+      </div>
+      <div class="p-8">
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">About the Role</h4>
+        <p class="text-gray-600 font-poppins leading-relaxed mb-6">Manage enterprise network infrastructure for our ISP clients, providing technical support and ensuring maximum uptime across all connectivity solutions deployed in Lagos and surrounding areas.</p>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Responsibilities</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-6">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Configure and maintain routers, switches, and firewalls</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Provide Tier 1 & 2 technical support to enterprise clients</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Monitor network performance and resolve outages rapidly</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Document network topology and maintain asset registers</li>
+        </ul>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Requirements</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-8">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> 2+ years network engineering experience</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> CCNA certification or equivalent</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Proficient in Linux server administration</li>
+        </ul>
+        <a href="mailto:info@denukan.co.uk?subject=Application - IT Support Network Engineer" class="btn-primary w-full text-center block">Apply Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-job6" class="modal-overlay" onclick="closeModalOutside(event, 'job6')">
+    <div class="modal-box">
+      <div class="bg-gradient-to-r from-denukan-dark-blue to-denukan-dark-green p-8 rounded-t-2xl">
+        <button onclick="closeModal('job6')" class="absolute top-4 right-4 text-white/70 hover:text-white text-2xl font-bold">&times;</button>
+        <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-light-green bg-white/10 px-3 py-1 rounded-full">Finance · Contract · Remote</span>
+        <h2 class="text-3xl font-cinzel font-bold text-white mt-4">AI & Data Analyst</h2>
+        <p class="text-denukan-light-green font-poppins mt-1">Remote · UK or Nigeria</p>
+      </div>
+      <div class="p-8">
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">About the Role</h4>
+        <p class="text-gray-600 font-poppins leading-relaxed mb-6">Use AI and machine learning to extract powerful financial insights from complex datasets. You'll build predictive models and dashboards that directly influence decisions for MFBs, FinTechs, and corporate clients.</p>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Responsibilities</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-6">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Build and deploy ML models for financial forecasting</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Create Power BI dashboards for client reporting</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Perform data cleaning, EDA, and statistical analysis</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Collaborate with consultants to translate data into insights</li>
+        </ul>
+        <h4 class="text-lg font-cinzel font-bold text-denukan-dark-blue mb-3">Requirements</h4>
+        <ul class="space-y-2 text-gray-600 font-poppins mb-8">
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> 3+ years data analysis or data science experience</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Proficient in Python, pandas, scikit-learn</li>
+          <li class="flex items-start gap-2"><span class="text-denukan-green mt-1">✓</span> Strong SQL and Power BI / Tableau skills</li>
+        </ul>
+        <a href="mailto:info@denukan.co.uk?subject=Application - AI Data Analyst" class="btn-primary w-full text-center block">Apply Now</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal().reveal('.animate-fade-up', {
+      distance: '50px', origin: 'bottom', opacity: 0, duration: 1000, easing: 'ease-out', interval: 200,
+    });
+
+    const heroBg = document.querySelector('.parallax-bg');
+    window.addEventListener('scroll', () => {
+      heroBg.style.backgroundPositionY = window.scrollY * 0.5 + 'px';
+    });
+
+    // Filter
+    function filterJobs(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cards = document.querySelectorAll('.job-card');
+      let visible = 0;
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block'; visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      document.getElementById('no-results').classList.toggle('hidden', visible > 0);
+    }
+
+    // Modal
+    function openModal(id) {
+      document.getElementById('modal-' + id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById('modal-' + id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeModalOutside(e, id) {
+      if (e.target === document.getElementById('modal-' + id)) closeModal(id);
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(m => {
+          m.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
