@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply - Management Consultant | Denukan Network UK BR. Ltd</title>
+
+  <link rel="icon" type="image/png" href="https://territorial-bronze-akh4kaf146.edgeone.app/dkn_logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@400;600&family=Montserrat:wght@500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'denukan-green': '#10b981',
+            'denukan-light-green': '#6ee7b7',
+            'denukan-dark-blue': '#0f172a',
+            'denukan-blue': '#1e40af',
+            'denukan-dark-green': '#065f46',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #065f46);
+      color: white;
+      font-weight: 600;
+      padding: 0.875rem 2rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4); }
+    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up { animation: fadeIn 0.8s forwards; }
+    .animate-drop-down { animation: fadeIn 0.6s forwards; }
+
+    .font-poppins { font-family: 'Poppins', sans-serif; }
+    .font-inter { font-family: 'Inter', sans-serif; }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+
+    .nav-link {
+      position: relative;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #10b981, #065f46);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active {
+      background: linear-gradient(90deg, #10b981, #065f46);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-logo { height: 80px; width: auto; object-fit: contain; mix-blend-mode: multiply; }
+    .footer-logo { height: 70px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.90; }
+
+    .form-input {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.5rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      color: #1f2937;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: white;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+    .form-label {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    /* File upload zone */
+    .file-zone {
+      border: 2px dashed #d1fae5;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      text-align: center;
+      background: #f0fdf4;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .file-zone:hover, .file-zone.dragover {
+      border-color: #10b981;
+      background: #ecfdf5;
+    }
+    .file-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .file-name {
+      display: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      color: #065f46;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    /* Success state */
+    #success-message { display: none; }
+    #success-message.show { display: flex; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-inter overflow-x-hidden">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full z-50 shadow-md backdrop-blur-md bg-white/95 animate-drop-down border-b border-denukan-light-green/20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <img src="https://territorial-bronze-akh4kaf146.edgeone.app/dkn_logo.png" alt="Denukan Logo" class="nav-logo" onerror="this.style.display='none'">
+        <h1 class="text-xl md:text-2xl font-bold font-cinzel bg-gradient-to-r from-denukan-dark-blue via-denukan-blue to-denukan-dark-green bg-clip-text text-transparent">
+          DENUKAN network uk br.ltd
+        </h1>
+      </div>
+      <div class="space-x-6">
+        <a href="index.html" class="nav-link text-denukan-dark-blue">Home</a>
+        <a href="about.html" class="nav-link text-denukan-dark-blue">About</a>
+        <a href="services.html" class="nav-link text-denukan-dark-blue">Services</a>
+        <a href="contact.html" class="nav-link text-denukan-dark-blue">Contact</a>
+        <a href="careers.html" class="nav-link active text-denukan-dark-blue">Careers</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="pt-32 pb-12 bg-gradient-to-br from-denukan-dark-blue to-denukan-dark-green">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-light-green bg-white/10 px-3 py-1 rounded-full">Now Hiring</span>
+      <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-white mt-4 mb-3">Management Consultant</h2>
+      <p class="text-denukan-light-green font-poppins">United Kingdom &nbsp;·&nbsp; Full-Time, Permanent &nbsp;·&nbsp; £50,000 – £55,000 p.a.</p>
+      <a href="careers.html" class="inline-flex items-center gap-2 mt-5 text-white/70 hover:text-white font-poppins text-sm transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        Back to Careers
+      </a>
+    </div>
+  </div>
+
+  <!-- Application Form -->
+  <main class="max-w-3xl mx-auto px-6 py-16">
+
+    <!-- Success message -->
+    <div id="success-message" class="hidden flex-col items-center text-center py-20 animate-fade-up">
+      <div class="w-20 h-20 bg-denukan-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-denukan-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+      </div>
+      <h3 class="text-3xl font-cinzel font-bold text-denukan-dark-blue mb-3">Application Submitted!</h3>
+      <p class="text-gray-600 font-poppins text-lg mb-2">Thank you for applying for the Management Consultant role.</p>
+      <p class="text-gray-500 font-poppins mb-8">Our team will review your application and get back to you within 5 working days.</p>
+      <a href="careers.html" class="btn-primary">Back to Careers</a>
+    </div>
+
+    <!-- Form -->
+    <div id="form-wrapper" class="bg-white rounded-2xl shadow-xl border-t-4 border-denukan-green p-8 md:p-10 animate-fade-up">
+      <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">Your Application</h3>
+      <p class="text-gray-500 font-poppins text-sm mb-8">All fields marked <span class="text-red-500 font-semibold">*</span> are required. Accepted file formats: PDF, DOC, DOCX (max 10MB each).</p>
+
+      <!--
+        SETUP INSTRUCTIONS:
+        1. Go to https://formspree.io and sign up for a free account
+        2. Create a new form and set the destination to info@denukan.co.uk
+        3. Replace "YOUR_FORM_ID" in the action URL below with your actual form ID
+        Example: action="https://formspree.io/f/abcd1234"
+      -->
+      <form
+        id="application-form"
+        action="https://formspree.io/f/mojrvwok"
+        method="POST"
+        enctype="multipart/form-data"
+        novalidate
+      >
+        <!-- Hidden fields for Formspree -->
+        <input type="hidden" name="_subject" value="New Application: Management Consultant">
+        <input type="hidden" name="_replyto" id="reply-to-field">
+        <input type="hidden" name="Position" value="Management Consultant">
+
+        <!-- Personal Details -->
+        <h4 class="text-lg font-cinzel font-semibold text-denukan-dark-blue mb-5 pb-2 border-b border-gray-100">Personal Details</h4>
+
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="form-label" for="first-name">First Name <span class="text-red-500">*</span></label>
+            <input class="form-input" type="text" id="first-name" name="First Name" placeholder="John" required>
+          </div>
+          <div>
+            <label class="form-label" for="last-name">Last Name <span class="text-red-500">*</span></label>
+            <input class="form-input" type="text" id="last-name" name="Last Name" placeholder="Doe" required>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="form-label" for="email">Email Address <span class="text-red-500">*</span></label>
+            <input class="form-input" type="email" id="email" name="Email" placeholder="john.doe@example.com" required>
+          </div>
+          <div>
+            <label class="form-label" for="phone">Phone Number <span class="text-red-500">*</span></label>
+            <input class="form-input" type="tel" id="phone" name="Phone Number" placeholder="+44 7700 000000" required>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="form-label" for="city">City / Town <span class="text-red-500">*</span></label>
+            <input class="form-input" type="text" id="city" name="City" placeholder="London" required>
+          </div>
+          <div>
+            <label class="form-label" for="state">County / State <span class="text-red-500">*</span></label>
+            <input class="form-input" type="text" id="state" name="County / State" placeholder="Essex" required>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <label class="form-label" for="linkedin">LinkedIn Profile URL <span class="text-gray-400 font-normal">(optional)</span></label>
+          <input class="form-input" type="url" id="linkedin" name="LinkedIn" placeholder="https://linkedin.com/in/yourname">
+        </div>
+
+        <!-- Professional Background -->
+        <h4 class="text-lg font-cinzel font-semibold text-denukan-dark-blue mb-5 pb-2 border-b border-gray-100">Professional Background</h4>
+
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="form-label" for="current-role">Current Job Title <span class="text-red-500">*</span></label>
+            <input class="form-input" type="text" id="current-role" name="Current Job Title" placeholder="Senior Business Analyst" required>
+          </div>
+          <div>
+            <label class="form-label" for="experience">Years of Relevant Experience <span class="text-red-500">*</span></label>
+            <select class="form-input" id="experience" name="Years of Experience" required>
+              <option value="" disabled selected>Select…</option>
+              <option value="5-7 years">5 – 7 years</option>
+              <option value="8-10 years">8 – 10 years</option>
+              <option value="10+ years">10+ years</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <label class="form-label" for="right-to-work">Right to Work in the UK <span class="text-red-500">*</span></label>
+          <select class="form-input" id="right-to-work" name="Right to Work in UK" required>
+            <option value="" disabled selected>Select…</option>
+            <option value="Yes - UK/Irish Citizen">Yes — UK / Irish Citizen</option>
+            <option value="Yes - Settled/Pre-Settled Status">Yes — Settled / Pre-Settled Status</option>
+            <option value="Yes - Valid Work Visa">Yes — Valid Work Visa</option>
+            <option value="No - Would require sponsorship">No — Would require sponsorship</option>
+          </select>
+        </div>
+
+        <!-- Document Uploads -->
+        <h4 class="text-lg font-cinzel font-semibold text-denukan-dark-blue mb-5 pb-2 border-b border-gray-100">Documents</h4>
+
+        <div class="mb-5">
+          <label class="form-label">CV / Resume <span class="text-red-500">*</span></label>
+          <div class="file-zone" id="cv-zone">
+            <input type="file" id="cv-upload" name="CV" accept=".pdf,.doc,.docx" required>
+            <svg class="w-10 h-10 text-denukan-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            <p class="text-denukan-dark-blue font-poppins font-semibold text-sm">Click to upload your CV</p>
+            <p class="text-gray-400 font-poppins text-xs mt-1">PDF, DOC or DOCX — max 10MB</p>
+            <p class="file-name" id="cv-name"></p>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <label class="form-label">Cover Letter <span class="text-red-500">*</span></label>
+          <div class="file-zone" id="cl-zone">
+            <input type="file" id="cl-upload" name="Cover Letter" accept=".pdf,.doc,.docx" required>
+            <svg class="w-10 h-10 text-denukan-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <p class="text-denukan-dark-blue font-poppins font-semibold text-sm">Click to upload your Cover Letter</p>
+            <p class="text-gray-400 font-poppins text-xs mt-1">PDF, DOC or DOCX — max 10MB</p>
+            <p class="file-name" id="cl-name"></p>
+          </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mb-8">
+          <label class="form-label" for="additional">Anything else you'd like us to know? <span class="text-gray-400 font-normal">(optional)</span></label>
+          <textarea class="form-input resize-none" id="additional" name="Additional Information" rows="4" placeholder="e.g. notice period, specific interest in the role, etc."></textarea>
+        </div>
+
+        <!-- Error message -->
+        <div id="form-error" class="hidden bg-red-50 border border-red-200 text-red-700 font-poppins text-sm rounded-lg p-4 mb-5">
+          Please fill in all required fields and attach both your CV and Cover Letter before submitting.
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn-primary w-full text-center text-lg font-montserrat">
+          Submit Application
+        </button>
+        <p class="text-center text-gray-400 font-poppins text-xs mt-4">Your application will be sent securely to info@denukan.co.uk</p>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 border-t bg-denukan-dark-blue text-gray-200 font-poppins">
+    <div class="flex justify-center mb-4">
+      <img src="https://territorial-bronze-akh4kaf146.edgeone.app/dkn_logo.png" alt="Denukan Logo" class="footer-logo" onerror="this.parentElement.style.display='none'">
+    </div>
+    <p class="mb-2">© 2026 DENUKAN network uk br.ltd | United Kingdom</p>
+    <p class="text-sm text-denukan-light-green">Brilliant Technology Solutions & Exceptional Financial Consultancy</p>
+  </footer>
+
+  <script>
+    // Sync reply-to with email field
+    document.getElementById('email').addEventListener('input', function () {
+      document.getElementById('reply-to-field').value = this.value;
+    });
+
+    // File upload display
+    function setupFileZone(inputId, nameId, zoneId) {
+      const input = document.getElementById(inputId);
+      const nameEl = document.getElementById(nameId);
+      const zone = document.getElementById(zoneId);
+
+      input.addEventListener('change', function () {
+        if (this.files && this.files[0]) {
+          nameEl.textContent = '✓ ' + this.files[0].name;
+          nameEl.style.display = 'block';
+          zone.style.borderColor = '#10b981';
+          zone.style.background = '#ecfdf5';
+        }
+      });
+
+      zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('dragover'); });
+      zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+      zone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        zone.classList.remove('dragover');
+        if (e.dataTransfer.files[0]) {
+          input.files = e.dataTransfer.files;
+          input.dispatchEvent(new Event('change'));
+        }
+      });
+    }
+
+    setupFileZone('cv-upload', 'cv-name', 'cv-zone');
+    setupFileZone('cl-upload', 'cl-name', 'cl-zone');
+
+    // Form submission
+    const form = document.getElementById('application-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const errorDiv = document.getElementById('form-error');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      errorDiv.classList.add('hidden');
+
+      // Basic validation
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        if (!field.value.trim() && field.type !== 'file') valid = false;
+        if (field.type === 'file' && !field.files.length) valid = false;
+      });
+
+      if (!valid) {
+        errorDiv.classList.remove('hidden');
+        errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          document.getElementById('form-wrapper').style.display = 'none';
+          const success = document.getElementById('success-message');
+          success.classList.remove('hidden');
+          success.classList.add('show');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+        errorDiv.textContent = 'Something went wrong. Please try again or email your application directly to info@denukan.co.uk';
+        errorDiv.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
