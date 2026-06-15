@@ -167,8 +167,8 @@
   <div class="pt-32 pb-12 bg-gradient-to-br from-denukan-dark-blue to-denukan-dark-green">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <span class="text-xs font-semibold font-montserrat uppercase tracking-wider text-denukan-light-green bg-white/10 px-3 py-1 rounded-full">Now Hiring</span>
-      <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-white mt-4 mb-3">Management Consultant</h2>
-      <p class="text-denukan-light-green font-poppins">United Kingdom &nbsp;·&nbsp; Full-Time, Permanent &nbsp;·&nbsp; £50,000 – £55,000 p.a.</p>
+      <h2 id="job-title-heading" class="text-4xl md:text-5xl font-cinzel font-bold text-white mt-4 mb-3">Management Consultant</h2>
+      <p id="job-subtitle" class="text-denukan-light-green font-poppins">United Kingdom &nbsp;·&nbsp; Full-Time, Permanent &nbsp;·&nbsp; £50,000 – £55,000 p.a.</p>
       <a href="careers.html" class="inline-flex items-center gap-2 mt-5 text-white/70 hover:text-white font-poppins text-sm transition">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
         Back to Careers
@@ -185,7 +185,7 @@
         <svg class="w-10 h-10 text-denukan-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
       </div>
       <h3 class="text-3xl font-cinzel font-bold text-denukan-dark-blue mb-3">Application Submitted!</h3>
-      <p class="text-gray-600 font-poppins text-lg mb-2">Thank you for applying for the Management Consultant role.</p>
+      <p class="text-gray-600 font-poppins text-lg mb-2">Thank you for applying for the <span id="success-job-name">Management Consultant</span> role.</p>
       <p class="text-gray-500 font-poppins mb-8">Our team will review your application and get back to you within 5 working days.</p>
       <a href="careers.html" class="btn-primary">Back to Careers</a>
     </div>
@@ -210,9 +210,9 @@
         novalidate
       >
         <!-- Hidden fields for Formspree -->
-        <input type="hidden" name="_subject" value="New Application: Management Consultant">
+        <input type="hidden" id="subject-field" name="_subject" value="New Application: Management Consultant">
         <input type="hidden" name="_replyto" id="reply-to-field">
-        <input type="hidden" name="Position" value="Management Consultant">
+        <input type="hidden" id="position-field" name="Position" value="Management Consultant">
 
         <!-- Personal Details -->
         <h4 class="text-lg font-cinzel font-semibold text-denukan-dark-blue mb-5 pb-2 border-b border-gray-100">Personal Details</h4>
@@ -336,6 +336,58 @@
   </footer>
 
   <script>
+    // Job data keyed by URL param
+    const JOB_DATA = {
+      'management-consultant': {
+        title: 'Management Consultant',
+        subtitle: 'United Kingdom  ·  Full-Time, Permanent  ·  £50,000 – £55,000 p.a.',
+        accentClass: 'border-denukan-green',
+        experienceOptions: [
+          { value: '5-7 years', label: '5 – 7 years' },
+          { value: '8-10 years', label: '8 – 10 years' },
+          { value: '10+ years', label: '10+ years' },
+        ],
+      },
+      'research-analyst': {
+        title: 'Strategic Business Research Analyst',
+        subtitle: 'United Kingdom  ·  Full-Time, Permanent  ·  £45,000 – £55,000 p.a.',
+        accentClass: 'border-denukan-blue',
+        experienceOptions: [
+          { value: 'Less than 2 years', label: 'Less than 2 years' },
+          { value: '2-4 years', label: '2 – 4 years' },
+          { value: '5-7 years', label: '5 – 7 years' },
+          { value: '8+ years', label: '8+ years' },
+        ],
+      },
+    };
+
+    (function initJob() {
+      const param = new URLSearchParams(window.location.search).get('job') || 'management-consultant';
+      const job = JOB_DATA[param] || JOB_DATA['management-consultant'];
+
+      document.title = 'Apply – ' + job.title + ' | Denukan Network UK BR. Ltd';
+      document.getElementById('job-title-heading').textContent = job.title;
+      document.getElementById('job-subtitle').textContent = job.subtitle;
+      document.getElementById('success-job-name').textContent = job.title;
+      document.getElementById('subject-field').value = 'New Application: ' + job.title;
+      document.getElementById('position-field').value = job.title;
+
+      // Swap accent border colour on the form card
+      const wrapper = document.getElementById('form-wrapper');
+      wrapper.classList.remove('border-denukan-green', 'border-denukan-blue');
+      wrapper.classList.add(job.accentClass);
+
+      // Rebuild experience options
+      const expSelect = document.getElementById('experience');
+      expSelect.innerHTML = '<option value="" disabled selected>Select…</option>';
+      job.experienceOptions.forEach(function (opt) {
+        const el = document.createElement('option');
+        el.value = opt.value;
+        el.textContent = opt.label;
+        expSelect.appendChild(el);
+      });
+    })();
+
     // Sync reply-to with email field
     document.getElementById('email').addEventListener('input', function () {
       document.getElementById('reply-to-field').value = this.value;
