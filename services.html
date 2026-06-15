@@ -89,7 +89,9 @@
     .service-card:hover .feature-icon { transform: scale(1.1) rotate(5deg); }
 
     /* LOGO */
-    .nav-logo { height: 100px; width: auto; object-fit: contain; mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(ellipse 75% 75% at center, black 55%, transparent 100%); mask-image: radial-gradient(ellipse 75% 75% at center, black 55%, transparent 100%); }
+    .nav-logo { height: 55px; width: auto; object-fit: contain; mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(ellipse 75% 75% at center, black 55%, transparent 100%); mask-image: radial-gradient(ellipse 75% 75% at center, black 55%, transparent 100%); }
+    @media (min-width: 768px) { .nav-logo { height: 100px; } }
+    @media (max-width: 767px) { .hero-bg, .parallax-bg { background-attachment: scroll; } }
     .footer-logo { height: 70px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.90; }
   </style>
 </head>
@@ -97,19 +99,33 @@
 
   <!-- Navigation -->
   <nav class="fixed top-0 left-0 w-full z-50 shadow-md bg-white animate-drop-down border-b border-denukan-light-green/20">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <img src="denukan_logo.png" alt="Denukan Logo" class="nav-logo" onerror="this.style.display='none'">
-        <h1 class="text-xl md:text-2xl font-bold font-cinzel bg-gradient-to-r from-denukan-dark-blue via-denukan-blue to-denukan-dark-green bg-clip-text text-transparent">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+        <img src="denukan_logo.png" alt="Denukan Logo" class="nav-logo flex-shrink-0" onerror="this.style.display='none'">
+        <h1 class="text-base md:text-2xl font-bold font-cinzel bg-gradient-to-r from-denukan-dark-blue via-denukan-blue to-denukan-dark-green bg-clip-text text-transparent leading-tight">
           DENUKAN network uk br.ltd
         </h1>
       </div>
-      <div class="space-x-6">
+      <div class="hidden md:flex items-center space-x-6">
         <a href="index.html" class="nav-link text-denukan-dark-blue">Home</a>
         <a href="about.html" class="nav-link text-denukan-dark-blue">About</a>
         <a href="services.html" class="nav-link active text-denukan-dark-blue">Services</a>
         <a href="contact.html" class="nav-link text-denukan-dark-blue">Contact</a>
         <a href="careers.html" class="nav-link text-denukan-dark-blue">Careers</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center items-center gap-1.5 w-10 h-10 flex-shrink-0" aria-label="Open menu">
+        <span class="w-6 h-0.5 bg-denukan-dark-blue block transition-all duration-300"></span>
+        <span class="w-6 h-0.5 bg-denukan-dark-blue block transition-all duration-300"></span>
+        <span class="w-6 h-0.5 bg-denukan-dark-blue block transition-all duration-300"></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg">
+      <div class="px-6 py-2 flex flex-col">
+        <a href="index.html" class="py-3 border-b border-gray-100 block font-montserrat font-semibold text-sm tracking-wide text-denukan-dark-blue hover:text-denukan-green transition-colors">Home</a>
+        <a href="about.html" class="py-3 border-b border-gray-100 block font-montserrat font-semibold text-sm tracking-wide text-denukan-dark-blue hover:text-denukan-green transition-colors">About</a>
+        <a href="services.html" class="py-3 border-b border-gray-100 block font-montserrat font-semibold text-sm tracking-wide text-denukan-green">Services</a>
+        <a href="contact.html" class="py-3 border-b border-gray-100 block font-montserrat font-semibold text-sm tracking-wide text-denukan-dark-blue hover:text-denukan-green transition-colors">Contact</a>
+        <a href="careers.html" class="py-3 block font-montserrat font-semibold text-sm tracking-wide text-denukan-dark-blue hover:text-denukan-green transition-colors">Careers</a>
       </div>
     </div>
   </nav>
@@ -118,10 +134,10 @@
   <section class="relative h-screen flex items-center justify-center text-center hero-bg parallax-bg">
     <div class="absolute inset-0 bg-gradient-to-b from-denukan-dark-blue/85 via-denukan-dark-blue/75 to-denukan-dark-green/85"></div>
     <div class="relative z-10 px-6 max-w-5xl">
-      <h2 class="hero-title text-5xl md:text-7xl font-cinzel font-bold text-white mb-6 animate-fade-up">
+      <h2 class="hero-title text-3xl sm:text-5xl md:text-7xl font-cinzel font-bold text-white mb-6 animate-fade-up">
         Our <span class="bg-gradient-to-r from-denukan-light-green to-denukan-green bg-clip-text text-transparent">Services</span>
       </h2>
-      <p class="hero-subtitle text-xl md:text-2xl text-gray-100 font-poppins animate-fade-up font-light">
+      <p class="hero-subtitle text-lg md:text-2xl text-gray-100 font-poppins animate-fade-up font-light">
         Comprehensive AI-Powered Financial & Technology Solutions
       </p>
       <p class="hero-subtitle text-lg md:text-xl text-denukan-light-green mt-4 font-poppins animate-fade-up font-medium">
@@ -324,6 +340,13 @@
       const offset = window.scrollY;
       heroBg.style.backgroundPositionY = offset * 0.5 + 'px';
     });
+
+    // Mobile menu
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
   </script>
 </body>
 </html>
