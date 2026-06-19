@@ -106,38 +106,6 @@
       margin-bottom: 0.5rem;
     }
 
-    /* File upload zone */
-    .file-zone {
-      border: 2px dashed #d1fae5;
-      border-radius: 0.75rem;
-      padding: 2rem;
-      text-align: center;
-      background: #f0fdf4;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      position: relative;
-    }
-    .file-zone:hover, .file-zone.dragover {
-      border-color: #10b981;
-      background: #ecfdf5;
-    }
-    .file-zone input[type="file"] {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      cursor: pointer;
-    }
-    .file-name {
-      display: none;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.875rem;
-      color: #065f46;
-      font-weight: 600;
-      margin-top: 0.5rem;
-    }
-
     /* Success state */
     #success-message { display: none; }
     #success-message.show { display: flex; }
@@ -208,7 +176,7 @@
     <!-- Form -->
     <div id="form-wrapper" class="bg-white rounded-2xl shadow-xl border-t-4 border-denukan-green p-8 md:p-10 animate-fade-up">
       <h3 class="text-2xl font-cinzel font-bold text-denukan-dark-blue mb-2">Your Application</h3>
-      <p class="text-gray-500 font-poppins text-sm mb-8">All fields marked <span class="text-red-500 font-semibold">*</span> are required. Accepted file formats: PDF, DOC, DOCX (max 10MB each).</p>
+      <p class="text-gray-500 font-poppins text-sm mb-8">All fields marked <span class="text-red-500 font-semibold">*</span> are required. Please share your CV and Cover Letter as shareable links (e.g. Google Drive, Dropbox, OneDrive).</p>
 
       <!--
         SETUP INSTRUCTIONS:
@@ -221,7 +189,6 @@
         id="application-form"
         action="https://formspree.io/f/mojrvwok"
         method="POST"
-        enctype="multipart/form-data"
         novalidate
       >
         <!-- Hidden fields for Formspree -->
@@ -300,29 +267,18 @@
           </select>
         </div>
 
-        <!-- Document Uploads -->
+        <!-- Documents -->
         <h4 class="text-lg font-cinzel font-semibold text-denukan-dark-blue mb-5 pb-2 border-b border-gray-100">Documents</h4>
+        <p class="text-gray-500 font-poppins text-sm mb-5">Upload your CV and Cover Letter to Google Drive, Dropbox, or OneDrive, set sharing to "Anyone with the link", then paste the links below.</p>
 
         <div class="mb-5">
-          <label class="form-label">CV / Resume <span class="text-red-500">*</span></label>
-          <div class="file-zone" id="cv-zone">
-            <input type="file" id="cv-upload" name="CV" accept=".pdf,.doc,.docx" required>
-            <svg class="w-10 h-10 text-denukan-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-            <p class="text-denukan-dark-blue font-poppins font-semibold text-sm">Click to upload your CV</p>
-            <p class="text-gray-400 font-poppins text-xs mt-1">PDF, DOC or DOCX — max 10MB</p>
-            <p class="file-name" id="cv-name"></p>
-          </div>
+          <label class="form-label" for="cv-link">CV / Resume Link <span class="text-red-500">*</span></label>
+          <input class="form-input" type="url" id="cv-link" name="CV Link" placeholder="https://drive.google.com/..." required>
         </div>
 
         <div class="mb-8">
-          <label class="form-label">Cover Letter <span class="text-red-500">*</span></label>
-          <div class="file-zone" id="cl-zone">
-            <input type="file" id="cl-upload" name="Cover Letter" accept=".pdf,.doc,.docx" required>
-            <svg class="w-10 h-10 text-denukan-green mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            <p class="text-denukan-dark-blue font-poppins font-semibold text-sm">Click to upload your Cover Letter</p>
-            <p class="text-gray-400 font-poppins text-xs mt-1">PDF, DOC or DOCX — max 10MB</p>
-            <p class="file-name" id="cl-name"></p>
-          </div>
+          <label class="form-label" for="cl-link">Cover Letter Link <span class="text-red-500">*</span></label>
+          <input class="form-input" type="url" id="cl-link" name="Cover Letter Link" placeholder="https://drive.google.com/..." required>
         </div>
 
         <!-- Additional Info -->
@@ -333,7 +289,7 @@
 
         <!-- Error message -->
         <div id="form-error" class="hidden bg-red-50 border border-red-200 text-red-700 font-poppins text-sm rounded-lg p-4 mb-5">
-          Please fill in all required fields and attach both your CV and Cover Letter before submitting.
+          Please fill in all required fields, including links to your CV and Cover Letter, before submitting.
         </div>
 
         <button type="submit" id="submit-btn" class="btn-primary w-full text-center text-lg font-montserrat">
@@ -415,36 +371,6 @@
       document.getElementById('reply-to-field').value = this.value;
     });
 
-    // File upload display
-    function setupFileZone(inputId, nameId, zoneId) {
-      const input = document.getElementById(inputId);
-      const nameEl = document.getElementById(nameId);
-      const zone = document.getElementById(zoneId);
-
-      input.addEventListener('change', function () {
-        if (this.files && this.files[0]) {
-          nameEl.textContent = '✓ ' + this.files[0].name;
-          nameEl.style.display = 'block';
-          zone.style.borderColor = '#10b981';
-          zone.style.background = '#ecfdf5';
-        }
-      });
-
-      zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('dragover'); });
-      zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
-      zone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        zone.classList.remove('dragover');
-        if (e.dataTransfer.files[0]) {
-          input.files = e.dataTransfer.files;
-          input.dispatchEvent(new Event('change'));
-        }
-      });
-    }
-
-    setupFileZone('cv-upload', 'cv-name', 'cv-zone');
-    setupFileZone('cl-upload', 'cl-name', 'cl-zone');
-
     // Form submission
     const form = document.getElementById('application-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -458,8 +384,7 @@
       const required = form.querySelectorAll('[required]');
       let valid = true;
       required.forEach(field => {
-        if (!field.value.trim() && field.type !== 'file') valid = false;
-        if (field.type === 'file' && !field.files.length) valid = false;
+        if (!field.value.trim()) valid = false;
       });
 
       if (!valid) {
